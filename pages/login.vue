@@ -1,8 +1,9 @@
 <template>
   <div class="login-box">
     <div class="login-logo">
-      <a>Safe<b>TY</b></a>
+      <a><strong>Safety</strong></a>
     </div>
+    <Error />
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Ingrese sus credeniales</p>
@@ -42,48 +43,30 @@
           <!-- /.col -->
         </div>
       </form>
-
-      <!-- <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"
-          ><i class="fa fa-facebook"></i> Sign in using Facebook</a
-        >
-        <a href="#" class="btn btn-block btn-social btn-google btn-flat"
-          ><i class="fa fa-google-plus"></i> Sign in using Google+</a
-        >
-      </div> -->
-      <!-- /.social-auth-links -->
-
-      <!-- <a>Olvide mi contraseña</a><br /> -->
-      <!-- <a href="register.html" class="text-center">Register a new membership</a> -->
     </div>
     <!-- /.login-box-body -->
   </div>
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from "vuex";
+import Error from "@/components/alerts/errorAlert";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "login",
   layout: "external",
-  components: {},
+  components: { Error },
   data() {
     return {
       login: {
-        username: "admin@gmail.com",
-        password: "123456",
+        username: "",
+        password: "",
       },
     };
   },
 
   methods: {
     async userLogin() {
-      try {
-        let response = await this.regularLogin(this.login);
-        console.log(response);
-      } catch (err) {
-        console.log(err);
-      }
+      await this.regularLogin(this.login);
     },
     ...mapActions({
       regularLogin: "usuario/regularLogin",
@@ -92,10 +75,8 @@ export default {
   computed: {
     ...mapGetters({
       token: "usuario/getToken",
+      error: "api/getError",
     }),
-  },
-  async mounted() {
-    //console.clear();
   },
 };
 </script>

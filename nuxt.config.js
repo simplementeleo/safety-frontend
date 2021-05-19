@@ -61,12 +61,13 @@ export default {
         href:
           `${awsS3}source/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css`
       },
-
       {
         rel: "stylesheet",
         href:
-          `https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic`,
+          `https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css`
       },
+      
+      
     ],
     script: [
       { src: `${awsS3}source/bower_components/jquery/dist/jquery.js` },
@@ -105,6 +106,8 @@ export default {
       { src: `${awsS3}source/dist/js/adminlte.min.js` },
       { src: `${awsS3}source/dist/js/pages/dashboard.js` },
       { src: `${awsS3}source/dist/js/demo.js` },
+      { src: `https://www.gstatic.com/charts/loader.js` },
+      // { src: `https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/char4t.js` },
     ],
   },
 
@@ -136,7 +139,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://dev.compilando.dev:30010/'
-    // baseURL: 'http://localhost:8200/',
+    //baseURL: 'http://localhost:8200/',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

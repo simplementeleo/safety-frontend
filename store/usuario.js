@@ -10,12 +10,8 @@ export const actions = {
         let response = await this.dispatch('api/axiosPost', { service: service, data: payload }).then(res => { return res });
         if (response.data != undefined) {
             localStorage.setItem("secretToken", response.data)
-            commit("token", response.data);
+            commit("setToken", response.data);
             this.$router.push("/");
-            return state.token
-        } else {
-            alert("credenciales incorrectas")
-            return undefined;
         }
     },
 }

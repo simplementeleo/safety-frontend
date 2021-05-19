@@ -5,9 +5,9 @@
         <!-- Logo -->
         <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">S<b>T</b></span>
+          <span class="logo-mini">S<strong>T</strong></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">SAFE<b>TY</b></span>
+          <span class="logo-lg">SAFE<strong>TY</strong></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -17,6 +17,7 @@
             class="sidebar-toggle"
             data-toggle="push-menu"
             role="button"
+            id="toggleNavbar"
           >
             <span class="sr-only">Toggle</span>
           </a>
@@ -25,36 +26,14 @@
             <ul class="nav navbar-nav">
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <!-- <img
-                    src="source/dist/img/user2-160x160.jpg"
-                    class="user-image"
-                    alt="User Image"
-                  />
-                  <span class="hidden-xs">Jaime Altozano</span> -->
-                  Opciones
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  @click="logout()"
+                >
+                  Salir
                 </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  
-                  <!-- <li class="user-header">
-                    <img
-                      src="source/dist/img/user2-160x160.jpg"
-                      class="img-circle"
-                      alt="User Image"
-                    />
-
-                    <p>
-                      Jaime Altozano <br />
-                    </p>
-                  </li> -->
-                  <!-- Menu Footer-->
-                  <li class="user-footer bg-dark">
-                    <div class="pull-right">
-                      <button class="btn btn-default btn-flat" @click="logout()">Salir</button>
-                    </div>
-                  </li>
-                </ul>
               </li>
             </ul>
           </div>
@@ -65,47 +44,28 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <!-- <div class="user-panel">
-            <div class="pull-left image">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png"
-                class="img-circle"
-                alt="Usuario"
-              />
-            </div>
-            <div class="pull-left info">
-              <p>Jaime Altozano</p>
-            </div>
-          </div> -->
+
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Menu navegación</li>
             <li class="active treeview">
-              <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li class="active">
-                  <a href="/"
-                    ><i class="fa fa-circle-o"></i> Resumen</a
-                  >
-                </li>
-              </ul>
+              <NuxtLink to="/">
+                <em class="fa fa-dashboard"></em> <span>Dashboard</span>
+              </NuxtLink>
             </li>
 
             <li class="header">Utilidades</li>
             <li>
-              <a href="#"
-                ><i class="fa fa-circle-o text-aqua"></i>
-                <span>Pagina web</span></a
+              <a href="https://www.deliryum.ai/"
+              target="_Blank"
+                ><em class="fa fa-circle-o text-aqua"></em>
+                <span>Pagina web Deliryum</span></a
               >
             </li>
             <li>
-              <a href="#"
-                ><i class="fa fa-circle-o text-aqua"></i> <span>Soporte</span></a
+              <a href="https://www.deliryum.ai/safety"
+                ><em class="fa fa-circle-o text-aqua"></em>
+                <span>Soporte SafetyApp</span></a
               >
             </li>
           </ul>
@@ -123,7 +83,7 @@
           </h1>
           <ol class="breadcrumb">
             <li>
-              <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+              <a href="#"><em class="fa fa-dashboard"></em> Home</a>
             </li>
             <li class="active">Resumen</li>
           </ol>
@@ -137,7 +97,7 @@
       </div>
       <!-- /.content-wrapper -->
       <footer class="main-footer">
-        <div class="pull-right hidden-xs"><b>Version</b> 1.0.0</div>
+        <div class="pull-right hidden-xs"><strong>Version</strong> 1.0.0</div>
         <strong>Copyright &copy; 2021 <a href="#">Safety</a>.</strong> Todos los
         derechos reservados.
       </footer>
@@ -170,17 +130,21 @@ export default {
   },
   computed: {},
   methods: {
-    logout(){
+    logout() {
       localStorage.clear();
       this.$router.push("/login");
-    }
+    },
   },
   async mounted() {
     var body = document.getElementsByTagName("body")[0];
-    body.classList.add("skin-blue");
+    body.classList.add("skin-yellow");
     body.classList.add("sidebar-mini");
+    body.classList.add("sidebar-collapse");
     body.classList.add("hold-transition");
-    $.widget.bridge('uibutton', $.ui.button);
+    $.widget.bridge("uibutton", $.ui.button);
+    // setTimeout(function () {
+    //   $("#toggleNavbar").click();
+    // }, 1000);
   },
 };
 </script>

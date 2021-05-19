@@ -1,4 +1,7 @@
 export const state = () => ({
+    error: {
+        message: undefined,
+    },
     api: {
         webservice: "api",
         headers: {
@@ -11,8 +14,11 @@ export const state = () => ({
         resultadoml: {
             lastByCamera: "resultadoml/last-resultadoml-v2",
             weeklyAverage: "resultadoml/weekly-average",
+            deteccionesConteoDiario: "resultadoml/detecciones-conteo-diario",
+            totalPersonasDiario: "resultadoml/total-personas-diario",
+            deteccionesMensual: "resultadoml/detecciones-mensual"
         },
-        usuario:{
+        usuario: {
             login: "usuario/login"
         }
     }
@@ -20,35 +26,34 @@ export const state = () => ({
 })
 
 export const actions = {
-    async axiosPost({ state, getters }, payload) {
-        console.log({ service: payload.service, data: payload.data })
-        let res = await this.$axios({
+    async axiosPost({ state, getters, commit, dispatch }, payload) {
+        commit('setError', {});
+        return this.$axios({
             method: "POST", headers: state.api.headers, url: payload.service, data: payload.data
         }).then(res => {
-            console.log({ RES: res });
+            console.log({ RES: res })
             return res
         }).catch(err => {
+            let error = {
+                message: err.response.data.message
+            }
+            commit('setError', error);
             console.log({ ERROR: err })
-            let res = { data: undefined }
-            // swal({ title: 'Ha ocurrido un error inesperado', text: msg, icon: 'error' })
-            return res;
+            return { data: undefined };
         });
-        return res;
+
     },
     async axiosGet({ state, getters }, payload) {
-        // console.log({ service: payload.service, data: payload.data })
-        let res = await this.$axios({
+        return this.$axios({
             method: "GET", headers: state.api.headers, url: payload.service, params: payload.params
         }).then(res => {
             console.log(res)
             return res
         }).catch(err => {
             console.log({ ERROR: err })
-            let res = { data: undefined }
-            // swal({ title: 'Ha ocurrido un error inesperado', text: msg, icon: 'error' })
-            return res;
+            return { data: undefined }
         });
-        return res;
+
     },
     async axiosPut() {
 
@@ -59,10 +64,13 @@ export const actions = {
 }
 
 export const mutations = {
-
+    setError(state, data) {
+        state.error = data;
+    },
 }
 
 export const getters = {
     getWebservice: state => state.api.webservice,
+    getError: state => state.error,
     getServices: state => state.services
 }
