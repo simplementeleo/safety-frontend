@@ -5,7 +5,8 @@
       <div class="box box-primary">
         <div class="box-header with-border" style="text-align: center">
           <h3 class="box-title">
-            Cantidad detecciones Real Time <strong>29-04-2021 11:55</strong>
+            Cantidad detecciones Real Time
+            <strong>{{ formatDate(resultadoml.horaDeteccion) }}</strong>
           </h3>
           <div class="box-tools pull-right"></div>
         </div>
@@ -26,10 +27,7 @@
                   </div>
                   <h3>{{ obtenerPersonas() }}</h3>
 
-                  <p>
-                    Detectados en sector <br />
-                    <!-- 15-02-2021 18:09 -->
-                  </p>
+                  <p>Número de ingresos al sector monitoreado <br /></p>
                 </div>
               </div>
             </div>
@@ -49,7 +47,7 @@
                   </div>
                   <h3>{{ obtenerPersonasSinCasco() }}</h3>
                   <p>
-                    Sin casco <br />
+                    Detecciones sin casco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
                 </div>
@@ -70,7 +68,7 @@
                   </div>
                   <h3>{{ obtenerPersonasConCasco() }}</h3>
                   <p>
-                    Con casco <br />
+                    Detecciones con casco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
                 </div>
@@ -93,7 +91,7 @@
                   <h3>{{ obtenerPersonasSinChaleco() }}</h3>
 
                   <p>
-                    Sin chaleco <br />
+                    Detecciones sin chaleco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
                 </div>
@@ -114,7 +112,7 @@
                   </div>
                   <h3>{{ obtenerPersonasConChaleco() }}</h3>
                   <p>
-                    Con chaleco <br />
+                    Detecciones con chaleco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
                 </div>
@@ -141,30 +139,45 @@ export default {
     ...mapMutations({
       setResultadoml: "resultadoml/setResultadoml",
     }),
+    formatDate(fecha) {
+      let options = {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false,
+      };
+      return new Intl.DateTimeFormat("es-CL", options).format(new Date(fecha));
+    },
+    calcularTotalCasos(classNumber) {
+      let total = 0;
+      this.resultadoml.personaResultadoml.forEach((persona) => {
+        persona.predTypePersona.forEach((ptp) => {
+          if (ptp.predType.classNumber == classNumber) total++;
+        });
+      });
+      return total;
+    },
     obtenerPersonas() {
-      return this.resultadoml.predTypeResultadomlResponse.filter((item) => {
-        return item;
-      }).length;
+      let total = 0;
+      this.resultadoml.personaResultadoml.forEach((persona) => {
+        total++;
+      });
+      return total;
     },
     obtenerPersonasConCasco() {
-      return this.resultadoml.predTypeResultadomlResponse.filter((item) => {
-        return item.predType.classNumber == 1;
-      }).length;
+      return this.calcularTotalCasos(1);
     },
     obtenerPersonasSinCasco() {
-      return this.resultadoml.predTypeResultadomlResponse.filter((item) => {
-        return item.predType.classNumber == 2;
-      }).length;
+      return this.calcularTotalCasos(2);
     },
     obtenerPersonasConChaleco() {
-      return this.resultadoml.predTypeResultadomlResponse.filter((item) => {
-        return item.predType.classNumber == 3;
-      }).length;
+      return this.calcularTotalCasos(3);
     },
     obtenerPersonasSinChaleco() {
-      return this.resultadoml.predTypeResultadomlResponse.filter((item) => {
-        return item.predType.classNumber == 0;
-      }).length;
+      return this.calcularTotalCasos(0);
     },
   },
   computed: {

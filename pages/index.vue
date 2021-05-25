@@ -29,7 +29,7 @@
       <div class="col-md-8">
         <TimeLineDetecciones />
         <PorcentajeSemestral />
-        <TimeLinePersonas />
+        <TimeLinePersonas /> 
       </div>
     </div>
     <div id="loader" v-show="resultadoml == undefined">

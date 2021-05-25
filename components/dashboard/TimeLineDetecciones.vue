@@ -51,8 +51,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      getWeeklyAverage: "resultadoml/getWeeklyAverageData",
-      getLastByCamera: "resultadoml/getLastByCamera",
       getDeteccionesConteoDiario: "resultadoml/getDeteccionesConteoDiario",
     }),
     ...mapMutations({

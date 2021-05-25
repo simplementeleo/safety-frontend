@@ -54,20 +54,20 @@
               </NuxtLink>
             </li>
 
-            <li class="header">Utilidades</li>
+            <!-- <li class="header">Utilidades</li>
             <li>
               <a href="https://www.deliryum.ai/"
               target="_Blank"
                 ><em class="fa fa-circle-o text-aqua"></em>
                 <span>Pagina web Deliryum</span></a
               >
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
               <a href="https://www.deliryum.ai/safety"
                 ><em class="fa fa-circle-o text-aqua"></em>
                 <span>Soporte SafetyApp</span></a
               >
-            </li>
+            </li> -->
           </ul>
         </section>
         <!-- /.sidebar -->
