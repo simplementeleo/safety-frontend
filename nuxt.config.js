@@ -138,8 +138,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://dev.compilando.dev:30010/'
-    //baseURL: 'http://localhost:8200/',
+    //baseURL: 'https://dev.compilando.dev:30010/'
+    baseURL: 'http://localhost:8200/',
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

@@ -95,10 +95,9 @@
                 </div>
               </div>
             </div>
-            <!-- resultadoml.url -->
             <img
               id="scream"
-              :src="imgCanvas"
+              :src="resultadoml.url"
               alt="The Scream"
               width="80%"
               height="277"
@@ -136,8 +135,6 @@ import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      imgCanvas:
-        "https://bluelatam1161645.blob.core.windows.net/imagenes-camaras/frame24052021112016-1.jpg",
       idCamara: 1,
     };
   },
@@ -228,11 +225,7 @@ export default {
       resultadoml: "resultadoml/getResultadoml",
     }),
   },
-  watch: {
-    idCamara: function (val) {
-      alert(val);
-    },
-  },
+  watch: {},
   async mounted() {
     // $("#modalCaptura").modal({
     //   backdrop: "static",

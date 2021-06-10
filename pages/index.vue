@@ -89,7 +89,7 @@ export default {
     let _$ = this;
     setInterval(async function () {
       await _$.getLastByCamera({ idCamara: _$.idCamara });
-    }, 10000);
+    }, 60000);
   },
 };
 </script>
