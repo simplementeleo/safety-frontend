@@ -94,9 +94,9 @@ export default {
   },
   async mounted() {
     this.drawSquare();
-    // setInterval(async function () {
-    //   _$.drawSquare();
-    // }, 10000);
+    setInterval(async function () {
+      _$.drawSquare();
+    }, 10000);
   },
 };
 </script>

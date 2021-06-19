@@ -11,8 +11,7 @@
           @change="cambiarCamara()"
         >
           <option value="1">Camara 1</option>
-          <option value="2" hidden>Camara 2</option>
-          <option value="3" hidden>Camara 3</option>
+          
         </select>
       </div>
       <div class="col-md-6">
@@ -85,11 +84,11 @@ export default {
     }),
   },
   async mounted() {
-    await this.getLastByCamera({ idCamara: this.idCamara });
+    this.getLastByCamera({ idCamara: this.idCamara });
     let _$ = this;
     setInterval(async function () {
       await _$.getLastByCamera({ idCamara: _$.idCamara });
-    }, 60000);
+    }, 20000);
   },
 };
 </script>

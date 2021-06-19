@@ -185,6 +185,7 @@ export default {
       var logoDelirium = document.getElementById("logoDelirium");
       ctx.drawImage(img, 0, 0);
       ctx.drawImage(logoDelirium, 20, 20);
+
       var canvas = document.getElementById("myCanvas");
       var context = canvas.getContext("2d");
 
@@ -198,8 +199,9 @@ export default {
       // context.stroke();
 
       context.beginPath();
-      this.resultadoml.personaResultadoml.forEach((item, index) => {
-        item.predTypePersona.forEach((ptp, index) => {
+      this.resultadoml.personaResultadoml.forEach((item, ind1) => {
+        item.predTypePersona.forEach((ptp, ind2) => {
+          //console.log(ptp.boundBox.upLeft, ptp.boundBox.upRight , ptp.boundBox.downLeft , ptp.boundBox.downRight)
           if (
             ptp.boundBox.upLeft &&
             ptp.boundBox.upRight &&
@@ -209,8 +211,8 @@ export default {
             context.rect(
               ptp.boundBox.upLeft,
               ptp.boundBox.upRight,
-              ptp.boundBox.downLeft - ptp.boundBox.upLeft,
-              ptp.boundBox.downRight - ptp.boundBox.upRight
+              ptp.boundBox.downLeft,
+              ptp.boundBox.downRight
             );
             context.lineWidth = 2;
             context.strokeStyle = ptp.predType.color;
@@ -231,13 +233,13 @@ export default {
     //   backdrop: "static",
     //   keyboard: false,
     // });
+
     await this.getLastByCamera({ idCamara: this.idCamara });
     this.drawSquare();
     let _$ = this;
     setInterval(async function () {
-      // await _$.getLastByCamera({ idCamara: _$.idCamara });
       _$.drawSquare();
-    }, 10000);
+    }, 1000);
   },
 };
 </script>
