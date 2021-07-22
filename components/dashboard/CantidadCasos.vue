@@ -2,18 +2,23 @@
   <div>
     <div v-if="resultadoml != undefined">
       <!-- Small boxes (Stat box) -->
-      <div class="box box-primary">
-        <div class="box-header with-border" style="text-align: center">
+      <div class="box" style="background-color:rgba(0, 0, 0, 0); border: none;">
+
+        <!-- 
+        <div class="box-header" style="text-align: center">
           <h3 class="box-title">
             Cantidad detecciones Real Time
             <strong>{{ formatDate(resultadoml.horaDeteccion) }}</strong>
           </h3>
           <div class="box-tools pull-right"></div>
         </div>
+        -->
+        
         <div class="box-body chart-responsive">
           <div class="row">
-            <div class="col-lg-12 col-xs-12">
-              <div class="small-box bgg-blue" style="text-align: center">
+
+            <div class="col-lg-4 col-xs-12">
+              <div class="small-box bgg-ingresos flexSpace">
                 <div class="inner">
                   <div
                     class="icon"
@@ -25,14 +30,18 @@
                       alt="etapas"
                     />
                   </div>
-                  <h3>{{ obtenerPersonas() }}</h3>
+                  
+                </div>
 
-                  <p>Número de ingresos al sector monitoreado <br /></p>
+                <div class="flexCenter" style="text-align: center; flex-direction: column">
+                  <p style="margin: 1px">Ingresos al sector<br /></p>
+                  <h3 style="margin: 1px">{{ obtenerPersonas() }}</h3>
                 </div>
               </div>
             </div>
+            <!-- 
             <div class="col-lg-6 col-xs-6">
-              <!-- small box -->
+              
               <div class="small-box bgg-blue">
                 <div class="inner">
                   <div
@@ -48,13 +57,14 @@
                   <h3>{{ obtenerPersonasSinCasco() }}</h3>
                   <p>
                     Detecciones sin casco <br />
-                    <!-- 15-02-2021 18:09 -->
+                    
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-xs-6">
-              <div class="small-box bgg-blue">
+            -->
+            <div class="col-lg-4 col-xs-6">
+              <div class="small-box bgg-cascos flexSpace">
                 <div class="inner">
                   <div
                     class="icon"
@@ -66,15 +76,18 @@
                       alt="etapas"
                     />
                   </div>
-                  <h3>{{ obtenerPersonasConCasco() }}</h3>
-                  <p>
-                    Detecciones con casco <br />
+                  
+                </div>
+                <div class="flexCenter" style="text-align: center; flex-direction: column">
+                  <p style="margin: 1px">
+                    Uso Casco
                     <!-- 15-02-2021 18:09 -->
                   </p>
+                  <h3 style="margin: 1px">{{ obtenerPersonasConCasco() }}</h3>
                 </div>
               </div>
             </div>
-
+            <!-- 
             <div class="col-lg-6 col-xs-6">
               <div class="small-box bgg-yellow">
                 <div class="inner">
@@ -92,13 +105,15 @@
 
                   <p>
                     Detecciones sin chaleco <br />
-                    <!-- 15-02-2021 18:09 -->
+                    
                   </p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-xs-6">
-              <div class="small-box bgg-yellow">
+            -->
+
+            <div class="col-lg-4 col-xs-6">
+              <div class="small-box bgg-chalecos flexSpace">
                 <div class="inner">
                   <div
                     class="icon"
@@ -110,14 +125,19 @@
                       alt="etapas"
                     />
                   </div>
-                  <h3>{{ obtenerPersonasConChaleco() }}</h3>
-                  <p>
-                    Detecciones con chaleco <br />
+                  
+                </div>
+                <div  class="flexCenter" style="text-align: center; flex-direction: column">
+                  <p style="margin: 1px">
+                    Uso Chaleco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
+                  <h3  style="margin: 1px">{{ obtenerPersonasConChaleco() }}</h3>
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>
@@ -211,5 +231,30 @@ export default {
   background-color: #f4f4f4;
   color: white;
   text-align: center;
+
+}
+.bgg-ingresos {
+  background-image: linear-gradient(to right, #7749EE , #B539F9);
+  color: white;
+  border-radius: 10px;
+}
+.bgg-cascos {
+  background-image: linear-gradient(to right, #4EE273 ,#4AE4C4);
+  color: white;
+  border-radius: 10px;
+}
+.bgg-chalecos {
+  background-image: linear-gradient(to right, #0C75F4 ,#54A7EC);
+  color: white;
+  border-radius: 10px;
+}
+.flexSpace {
+  display: flex;
+  justify-content: space-around;
+}
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

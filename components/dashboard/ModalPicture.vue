@@ -1,11 +1,30 @@
 <template>
   <div>
-    <a
+    <!-- 
+      <a
       class="btn btn-info btn-block btn-flat"
       data-toggle="modal"
       data-target="#modalCaptura"
-      >Ver imagen <span class="fa fa-arrow-circle-right"></span
-    ></a>
+      >Ver imagen <span class="fa fa-arrow-circle-right"></span></a>
+    -->
+    
+    <div class="box bgg-sfbox modalPreviewDiv">
+      <div>
+        <a data-toggle="modal"
+        data-target="#modalCaptura">
+        <img
+              id="scream"
+              :src="resultadoml.url"
+              alt="The Scream"
+              width="100%"
+              height="70%"
+             
+            />
+        </a>
+      </div>
+      
+      
+    </div>
 
     <div
       class="modal fade"
@@ -16,85 +35,22 @@
       aria-hidden="true"
     >
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content bgg-sfbox">
+          <!-- 
           <div class="modal-header">
-            <h4 class="modal-title" id="modalCapturaLabel">
-              <strong>Ultima detección</strong>
-            </h4>
+            
             <button
               type="button"
               class="close"
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" style="color: white;">&times;</span>
             </button>
           </div>
+          -->
           <div class="modal-body" v-if="resultadoml != undefined">
-            <div class="row">
-              <div class="col-md-4 col-xs-4">
-                <div class="small-box bgg-blue" style="text-align: center">
-                  <div class="inner">
-                    <div
-                      class="icon"
-                      style="position: initial !important; font-size: 48px"
-                    >
-                      <img
-                        src="@/assets/icons/obrero.png"
-                        style="width: 40px"
-                        alt="etapas"
-                      />
-                    </div>
-                    <h4>{{ obtenerPersonas() }}</h4>
-
-                    <p>Detecciones <br /></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-xs-4">
-                <div class="small-box bgg-blue">
-                  <div class="inner">
-                    <div
-                      class="icon"
-                      style="position: initial !important; font-size: 48px"
-                    >
-                      <img
-                        src="@/assets/icons/casco.png"
-                        style="width: 40px"
-                        alt="etapas"
-                      />
-                    </div>
-                    <h4>{{ obtenerPersonasConCasco() }}</h4>
-                    <p>
-                      Detecciones con casco <br />
-                      <!-- 15-02-2021 18:09 -->
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-xs-4">
-                <div class="small-box bgg-blue">
-                  <div class="inner">
-                    <div
-                      class="icon"
-                      style="position: initial !important; font-size: 48px"
-                    >
-                      <img
-                        src="@/assets/icons/chaleco.png"
-                        style="width: 40px"
-                        alt="etapas"
-                      />
-                    </div>
-                    <h4>{{ obtenerPersonasConChaleco() }}</h4>
-                    <p>
-                      Detecciones con chaleco <br />
-                      <!-- 15-02-2021 18:09 -->
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <img
               id="scream"
               :src="resultadoml.url"
@@ -118,7 +74,7 @@
               Canvas no es soportado.</canvas
             >
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="display: flex; justify-content: center">
             <button type="button" class="btn btn-primary" data-dismiss="modal">
               Cerrar
             </button>
@@ -266,5 +222,30 @@ export default {
   background-color: #f4f4f4;
   color: white;
   text-align: center;
+}
+.bgg-sfbox {
+  background-color: #2B2B4B;
+  border-radius: 10px;
+}
+.modalPreviewDiv {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+.modalPreviewDiv div {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  border-radius: 10px;
+}
+img:hover {
+  cursor: pointer;
+  
 }
 </style>

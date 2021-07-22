@@ -2,7 +2,8 @@
   <div>
     <div v-if="resultadoml != undefined">
       <!-- Small boxes (Stat box) -->
-      <div class="box box-primary">
+      <div class="box" style="background-color:rgba(0, 0, 0, 0); border: none;">
+        <!-- 
         <div class="box-header with-border" style="text-align: center">
           <h3 class="box-title">
             Porcentaje deteccion
@@ -10,34 +11,16 @@
           </h3>
           <div class="box-tools pull-right"></div>
         </div>
+        -->
+
         <div class="box-body chart-responsive">
           <div class="row">
-            <div class="col-lg-6 col-xs-6">
-              <div class="small-box bgg-yellow">
-                <div class="inner">
-                  <h4 class="center-white">
-                    <strong>Porcentaje de uso chaleco</strong>
-                  </h4>
-                  <h4
-                    class="center-white center-over"
-                    v-show="
-                      obtenerPersonasConChaleco() == 0 &&
-                      obtenerPersonasSinChaleco() == 0
-                    "
-                  >
-                    Datos insuficientes...
-                  </h4>
-                  <div id="percent-vest"></div>
 
-                  <!-- <canvas id="percent-vest" width="400" height="400"></canvas> -->
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-xs-6">
-              <div class="small-box bgg-blue">
+             <div class="col-lg-12 col-xs-12">
+              <div class="small-box bgg-sfbox">
                 <div class="inner">
                   <h4 style="color: white; text-align: center">
-                    <strong>Porcentaje de uso casco</strong>
+                    <strong>Uso de Casco</strong>
                   </h4>
                   <h4
                     class="center-white center-over"
@@ -46,13 +29,39 @@
                       obtenerPersonasSinCasco() == 0
                     "
                   >
-                    Datos insuficientes
+                    Generando datos...
                   </h4>
                   <div id="percent-helmet"></div>
                   <!-- <canvas id="percent-helmet" width="400" height="400"></canvas> -->
                 </div>
               </div>
             </div>
+
+
+
+            <div class="col-lg-12 col-xs-12">
+              <div class="small-box bgg-sfbox">
+                <div class="inner">
+                  <h4 class="center-white">
+                    <strong>Uso de Chaleco</strong>
+                  </h4>
+                  <h4
+                    class="center-white center-over"
+                    v-show="
+                      obtenerPersonasConChaleco() == 0 &&
+                      obtenerPersonasSinChaleco() == 0
+                    "
+                  >
+                    Generando datos...
+                  </h4>
+                  <div id="percent-vest"></div>
+
+                  <!-- <canvas id="percent-vest" width="400" height="400"></canvas> -->
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -124,11 +133,13 @@ export default {
       ]);
 
       var options = {
+        pieHole: 0.8,
         backgroundColor: "transparent",
         legend: { position: "bottom", textStyle: { color: "white" } },
+        
         slices: {
-          0: { color: "#ffcd00" },
-          1: { color: "grey" },
+          0: { color: "#4EE273" },
+          1: { color: "white" },
         },
       };
 
@@ -146,11 +157,12 @@ export default {
       ]);
 
       var options = {
+        pieHole: 0.8,
         backgroundColor: "transparent",
         legend: { position: "bottom", textStyle: { color: "white" } },
         slices: {
-          0: { color: "#003b60" },
-          1: { color: "grey" },
+          0: { color: "#0C75F4" },
+          1: { color: "white" },
         },
       };
 
@@ -189,8 +201,8 @@ export default {
 <style scoped>
 .center-over {
   z-index: 99999999;
-  margin-top: 37%;
-  position: absolute;
+  margin-top: 10%;
+  position: relative;
 }
 .center-white {
   color: white;
@@ -204,5 +216,9 @@ export default {
 }
 .bgg-grey {
   background-color: #f4f4f4;
+}
+.bgg-sfbox {
+  background-color: #2B2B4B;
+  border-radius: 10px;
 }
 </style>

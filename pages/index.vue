@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div style="background-color: #010030">
     <div class="row" v-show="resultadoml != undefined">
+      <!-- 
       <div class="col-md-6">
         <label for="">Seleccione la camara</label>
         <select
@@ -14,22 +15,38 @@
           
         </select>
       </div>
-      <div class="col-md-6">
-        <label for="">Imagen ultima detección</label>
-        <ModalPicture />
-      </div>
+      -->
+      
     </div>
     <br />
     <div class="row" v-if="resultadoml != undefined">
-      <div class="col-md-4">
-        <CantidadCasos />
-        <PorcentajeCasos />
+      <div class="col-md-3">
+        <ModalPicture />
+        <MenuReportes />
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
+        <CantidadCasos />
+      </div>
+      <div class="col-md-9">
+        <div class="col-md-4" style="color: white">
+          <PorcentajeCasos />
+        </div>
+        <div class="col-md-8" style="color: white">
+          <TLGrafico1 />
+          <TLGrafico2 />
+        </div>
+      </div>
+      
+      <!-- 
+      <div class="col-md-9">
+        
         <TimeLineDetecciones />
         <PorcentajeSemestral />
         <TimeLinePersonas /> 
       </div>
+      -->
+      
+  
     </div>
     <div id="loader" v-show="resultadoml == undefined">
       <div style="display: table; margin: 0 auto">
@@ -49,6 +66,9 @@ import TimeLineDetecciones from "@/components/dashboard/TimeLineDetecciones";
 import TimeLinePersonas from "@/components/dashboard/TimeLinePersonas";
 import ModalPicture from "@/components/dashboard/ModalPicture";
 import DrawDetecciones from "@/components/dashboard/DrawDetecciones";
+import MenuReportes from "@/components/dashboard/MenuReportes.vue";
+import TLGrafico1 from "@/components/dashboard/TLGrafico1.vue";
+import TLGrafico2 from "@/components/dashboard/TLGrafico2.vue";
 import { mapMutations, mapGetters, mapActions } from "vuex";
 export default {
   data() {
@@ -65,6 +85,9 @@ export default {
     TimeLinePersonas,
     PorcentajeSemestral,
     WeeklyAverage,
+    MenuReportes,
+    TLGrafico1,
+    TLGrafico2,
   },
   methods: {
     ...mapActions({

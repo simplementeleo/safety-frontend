@@ -139,7 +139,8 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     //baseURL: 'https://dev.compilando.dev:30010/'
-    baseURL: 'https://safetytest.azurewebsites.net/'
+    baseURL: 'http://localhost:8200/'
+    //'https://safetytest.azurewebsites.net/'
     // baseURL: 'http://localhost:8200/',
   },
 

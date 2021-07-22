@@ -1,5 +1,5 @@
 <template>
-  <div class="login-box">
+  <div class="login-box bgg-sfbox">
     <div class="login-logo">
       <a><strong>Safety</strong></a>
     </div>
@@ -111,5 +111,8 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+.bgg-sfbox {
+  background-color: #010030;
 }
 </style>
