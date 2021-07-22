@@ -200,7 +200,7 @@ export default {
 
 <style scoped>
 .center-over {
-  z-index: 99999999;
+  
   margin-top: 10%;
   position: relative;
 }

@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="wrapper">
-      <header style="display: flex; justify-content: space-between; background-color: #2B2B4B">
-        <div>
-          <span class="logo-lg" style="color: antiquewhite">SAFETY</span>
+      <header class="headerStyle">
+        <div class="safetyLogo" style="margin-top: -5px;">
+          <strong>SAFETY</strong>
         </div>
+        <div class="col-md-8"><input class="form-control col-md-8 sfSearchbar" type="search" placeholder="Buscar" aria-label="Buscar"></div>
+        
         <!-- Logo -->
         <!-- 
         <a href="/" class="logo">
@@ -29,19 +31,31 @@
           </a>
           -->
 
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
+          <div class="navbar-custom-menu" style="padding-bottom: 2px;">
+            <ul class="nav navbar-nav" style="padding-bottom: 2px;">
               <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
+
+              
+              <li style="padding: 0px"><!--class="dropdown user user-menu" -->
                 <a
+                  style="padding: 0px"
                   href="#"
-                  class="dropdown-toggle"
                   data-toggle="dropdown"
                   @click="logout()"
                 >
-                  Salir
+                  <div
+                    style="background-color: #F37DB8; border-radius: 50%"
+                  >
+                    <img
+                      src="@/assets/icons/logout.png"
+                      style="width: 40px; height: 40px;"
+                      alt="Salir"
+                    />
+                </div>
                 </a>
               </li>
+              
+
             </ul>
           </div>
         </nav>
@@ -134,4 +148,46 @@ export default {
 };
 </script>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+  * {
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .headerStyle {
+    display: flex; 
+    justify-content: space-between; 
+    background-color: #2B2B4B; 
+    height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+  .safetyLogo {
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 6px;
+    font-family: 'Ubuntu', sans-serif;
+    
+  }
+  .sfSearchbar{
+    background-color: #010030;
+    border: none;
+    border-radius: 10px;
+    color: white;
+
+  }
+  ::placeholder {
+  color: #2B2B4B; ;
+  opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #2B2B4B; ;
+  }
+
+  ::-ms-input-placeholder { /* Microsoft Edge */
+  color: #2B2B4B; ;
+  }
+
+  
+
 </style>

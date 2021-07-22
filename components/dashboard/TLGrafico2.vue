@@ -4,15 +4,18 @@
       <div class="col-md-12">
         <!-- AREA CHART -->
         <div class="box bgg-sfbox">
-          <div class="box-header">
-            <h3 class="box-title">
-              Semestre - Uso EPP
+          <div class="box-header flex spaceAround" style="color: white">
+            <div class="box-tools" style="margin-left: 10px; margin-top: 2px" >
+              <h3 class="box-title">
+              Uso EPP
               {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}
             </h3>
-            <div class="box-tools pull-right">
+            </div>
+            
+            <div class="box-tools">
               <button
                 type="button"
-                class="btn"
+                class="btn btn-primary"
                 data-widget="remove"
                 @click="siguiente(0)"
               >
@@ -20,7 +23,7 @@
               </button>
               <button
                 type="button"
-                class="btn"
+                class="btn btn-primary"
                 data-widget="remove"
                 @click="siguiente(6)"
               >
@@ -42,6 +45,7 @@
               <h4><strong>Aun no tenemos datos para mostrarte</strong></h4>
             </div>
 
+            <!-- 
             <div class="text-center">
               <span
                 style="background-color: #003b60; padding: 1px 40px 1px 1px"
@@ -56,6 +60,8 @@
               ></span>
               Uso chaleco
             </div>
+            -->
+
           </div>
         </div>
       </div>
@@ -110,7 +116,7 @@ export default {
       xkey: "mes",
       ykeys: ["porcentajeCasco", "porcentajeChaleco"],
       labels: ["Uso casco", "Uso chaleco"],
-      barColors: ["#003b60", "#ffcd00"],
+      barColors: ["#4EE273", "#0C75F4"],
       //xLabelFormat:function (x) { console.log(x); return x }
     });
   },
@@ -123,5 +129,11 @@ export default {
   background-color: #2B2B4B;
   border-radius: 10px;
   border: none;
+}
+.flex {
+  display: flex;
+}
+.spaceAround{
+  justify-content: space-around;
 }
 </style>

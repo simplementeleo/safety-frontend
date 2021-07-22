@@ -4,8 +4,8 @@
       <div class="col-md-12">
         <!-- AREA CHART -->
         <div class="box bgg-sfbox">
-          <div class="box-header" style="text-align: center">
-            <h3 class="box-title">Tendencia de uso EPP</h3>
+          <div class="box-header" style="text-align: center; color: white">
+            <h3 class="box-title">Porcentaje de uso EPP Jornada</h3>
             <div class="box-tools pull-right"></div>
           </div>
           <div class="box-body chart-responsive">
