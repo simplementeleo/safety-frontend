@@ -1,6 +1,8 @@
 <template>
   <div style="background-color: #010030">
+    
     <div class="row" v-show="resultadoml != undefined">
+      
       <!-- 
       <div class="col-md-6">
         <label for="">Seleccione la camara</label>
@@ -58,64 +60,68 @@
 </template>
 
 <script>
-import CantidadCasos from "@/components/dashboard/CantidadCasos";
-import PorcentajeCasos from "@/components/dashboard/PorcentajeCasos";
-import PorcentajeSemestral from "@/components/dashboard/PorcentajeSemestral";
-import WeeklyAverage from "@/components/dashboard/WeeklyAverage";
-import TimeLineDetecciones from "@/components/dashboard/TimeLineDetecciones";
-import TimeLinePersonas from "@/components/dashboard/TimeLinePersonas";
-import ModalPicture from "@/components/dashboard/ModalPicture";
-import DrawDetecciones from "@/components/dashboard/DrawDetecciones";
-import MenuReportes from "@/components/dashboard/MenuReportes.vue";
-import TLGrafico1 from "@/components/dashboard/TLGrafico1.vue";
-import TLGrafico2 from "@/components/dashboard/TLGrafico2.vue";
-import { mapMutations, mapGetters, mapActions } from "vuex";
-export default {
-  data() {
-    return {
-      idCamara: 1,
-    };
-  },
-  components: {
-    PorcentajeCasos,
-    ModalPicture,
-    DrawDetecciones,
-    CantidadCasos,
-    TimeLineDetecciones,
-    TimeLinePersonas,
-    PorcentajeSemestral,
-    WeeklyAverage,
-    MenuReportes,
-    TLGrafico1,
-    TLGrafico2,
-  },
-  methods: {
-    ...mapActions({
-      getLastByCamera: "resultadoml/getLastByCamera",
-    }),
-    ...mapMutations({
-      setResultadoml: "resultadoml/setResultadoml",
-    }),
-    async cambiarCamara() {
-      this.setResultadoml(undefined);
-      await this.getLastByCamera({ idCamara: this.idCamara });
+  import CantidadCasos from "@/components/dashboard/CantidadCasos";
+  import PorcentajeCasos from "@/components/dashboard/PorcentajeCasos";
+  import PorcentajeSemestral from "@/components/dashboard/PorcentajeSemestral";
+  import WeeklyAverage from "@/components/dashboard/WeeklyAverage";
+  import TimeLineDetecciones from "@/components/dashboard/TimeLineDetecciones";
+  import TimeLinePersonas from "@/components/dashboard/TimeLinePersonas";
+  import ModalPicture from "@/components/dashboard/ModalPicture";
+  import DrawDetecciones from "@/components/dashboard/DrawDetecciones";
+  import MenuReportes from "@/components/dashboard/MenuReportes.vue";
+  import TLGrafico1 from "@/components/dashboard/TLGrafico1.vue";
+  import TLGrafico2 from "@/components/dashboard/TLGrafico2.vue";
+  import { mapMutations, mapGetters, mapActions } from "vuex";
+  export default {
+    data() {
+      return {
+        idCamara: 1,
+      };
     },
-  },
-  computed: {
-    ...mapGetters({
-      resultadoml: "resultadoml/getResultadoml",
-    }),
-  },
-  async mounted() {
-    this.getLastByCamera({ idCamara: this.idCamara });
-    let _$ = this;
-    setInterval(async function () {
-      await _$.getLastByCamera({ idCamara: _$.idCamara });
-    }, 20000);
-  },
-};
+    components: {
+      PorcentajeCasos,
+      ModalPicture,
+      DrawDetecciones,
+      CantidadCasos,
+      TimeLineDetecciones,
+      TimeLinePersonas,
+      PorcentajeSemestral,
+      WeeklyAverage,
+      MenuReportes,
+      TLGrafico1,
+      TLGrafico2,
+    },
+    methods: {
+      ...mapActions({
+        getLastByCamera: "resultadoml/getLastByCamera",
+      }),
+      ...mapMutations({
+        setResultadoml: "resultadoml/setResultadoml",
+      }),
+      async cambiarCamara() {
+        this.setResultadoml(undefined);
+        await this.getLastByCamera({ idCamara: this.idCamara });
+      },
+    },
+    computed: {
+      ...mapGetters({
+        resultadoml: "resultadoml/getResultadoml",
+      }),
+    },
+    async mounted() {
+      this.getLastByCamera({ idCamara: this.idCamara });
+      let _$ = this;
+      setInterval(async function () {
+        await _$.getLastByCamera({ idCamara: _$.idCamara });
+      }, 20000);
+    },
+  };
+
+  console.log("ENTRANDO AL INDEX");
 </script>
 
 <style>
+  
+  
 </style>
 

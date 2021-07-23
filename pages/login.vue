@@ -1,12 +1,16 @@
 <template>
-  <div class="login-box bgg-sfbox">
+<div class="mainWrapper">
+  <div class="login-box bgg-sfbox" id="loginBox">
+     
     <div class="login-logo">
-      <a><strong>Safety</strong></a>
+      <br/>
+      <div><strong>SAFETY</strong></div>
     </div>
+    
     <Error />
     <!-- /.login-logo -->
-    <div class="login-box-body">
-      <p class="login-box-msg">Ingrese sus credeniales</p>
+    <div class="login-box-body loginbody">
+      <p class="login-box-msg" style="color:black"><strong>Ingrese sus credenciales</strong></p>
       <form @submit.prevent="userLogin">
         <div class="form-group has-feedback">
           <input
@@ -31,7 +35,7 @@
         <div class="row">
           <div class="col-xs-8">
             <div class="checkbox">
-              <label> <input type="checkbox" /> Recuerdame </label>
+              <label> <input type="checkbox" /> Recuérdame </label>
             </div>
           </div>
           <!-- /.col -->
@@ -46,6 +50,7 @@
     </div>
     <!-- /.login-box-body -->
   </div>
+</div>
 </template>
 
 <script>
@@ -82,6 +87,13 @@ export default {
 </script>
 
 <style>
+.mainWrapper {
+  background-color: #010030;
+  position:fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -113,6 +125,39 @@ export default {
   padding-top: 15px;
 }
 .bgg-sfbox {
-  background-color: #010030;
+  background-color: #2B2B4B;
+  border-radius: 5px;
 }
+
+.loginbody {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+  
+.login-logo{
+  color: white;
+  font-size: 3rem;
+  letter-spacing: 6px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 40px;
+  
+  
+}
+
+#loginBox {
+ animation: 0.6s linear 0s 1 transformLogin;
+}
+
+ @keyframes transformLogin {
+    0% {
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+    }
+  }
 </style>

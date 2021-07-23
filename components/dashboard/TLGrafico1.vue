@@ -20,6 +20,7 @@
               <h4 v-show="deteccionesConteoDiario.cantidadHorario.length == 0">
                 <strong>Aun no tenemos datos para mostrarte</strong>
               </h4>
+              <!-- 
               <div>
                 <span
                   style="background-color: #003b60; padding: 1px 40px 1px 1px"
@@ -34,6 +35,8 @@
                 ></span>
                 Uso chaleco
               </div>
+              -->
+
             </div>
           </div>
         </div>
@@ -87,7 +90,7 @@ export default {
       smooth: true,
       ykeys: ["porcentajeCasco", "porcentajeChaleco"],
       labels: ["Uso casco", "Uso chaleco"],
-      lineColors: ["#003b60", "#ffcd00"],
+      lineColors: ["#4EE273", "#0C75F4"],
     });
   },
 };

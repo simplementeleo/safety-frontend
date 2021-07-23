@@ -1,5 +1,8 @@
 <template>
   <div>
+    <section class="welcomeScreen" id="welcomescreen">
+        <div class="safetyLogo"><strong>SAFETY</strong></div>
+    </section>
     <div class="wrapper">
       <header class="headerStyle">
         <div class="safetyLogo" style="margin-top: -5px;">
@@ -36,8 +39,9 @@
               <!-- User Account: style can be found in dropdown.less -->
 
               
-              <li style="padding: 0px"><!--class="dropdown user user-menu" -->
+              <li style="padding: 0px" class="logoutLink"><!--class="dropdown user user-menu" -->
                 <a
+                  class="logoutLink"
                   style="padding: 0px"
                   href="#"
                   data-toggle="dropdown"
@@ -45,8 +49,10 @@
                 >
                   <div
                     style="background-color: #F37DB8; border-radius: 50%"
+                    class="logoutLink"
                   >
                     <img
+                      class="logoutLink"
                       src="@/assets/icons/logout.png"
                       style="width: 40px; height: 40px;"
                       alt="Salir"
@@ -88,8 +94,8 @@
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
-      <footer class="main-footer" style="background-color: #2B2B4B; color: white">
-        <div class="pull-right hidden-xs"><strong>Version</strong> 1.5</div>
+      <footer class="main-footer" style="background-color: #2B2B4B; color: white; border: none">
+        <div class="pull-right hidden-xs"><strong>Versión</strong> 1.5</div>
         <strong>Copyright &copy; 2021 <a href="#">Safety</a>.</strong> Todos los
         derechos reservados.
       </footer>
@@ -140,10 +146,12 @@ export default {
     
     */
     body.classList.add("hold-transition");
+
     $.widget.bridge("uibutton", $.ui.button);
-    // setTimeout(function () {
-    //   $("#toggleNavbar").click();
-    // }, 1000);
+
+    setTimeout(function () {
+      document.getElementById("welcomescreen").style.display='none';
+    }, 2000);
   },
 };
 </script>
@@ -152,6 +160,33 @@ export default {
   * {
     font-family: 'Ubuntu', sans-serif;
   }
+  .logoutLink:hover{
+    text-decoration: none;
+  }
+   
+  .welcomeScreen{
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+    background-color: #010030;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    animation: 2s ease-in-out 0s 1 fadeAway;
+  }
+
+  /* Screen Animation*/
+  @keyframes fadeAway {
+    0% {
+      opacity: 100;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
   .headerStyle {
     display: flex; 
     justify-content: space-between; 
