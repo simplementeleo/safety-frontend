@@ -10,6 +10,14 @@
     
     <div class="box bgg-sfbox modalPreviewDiv">
       <div>
+        <span class="iconoCamara">
+          <img
+              src="@/assets/icons/camara.png"
+              style="width: 30px"
+              
+            />
+        </span>
+        
         <a data-toggle="modal"
         data-target="#modalCaptura">
         <img
@@ -247,5 +255,13 @@ img {
 img:hover {
   cursor: pointer;
   
+}
+.iconoCamara {
+  position: absolute;
+  top: 17%; 
+  left: 7%;
+  color: white;
+  border-radius: 50%;
+  background-color:  #010030;
 }
 </style>

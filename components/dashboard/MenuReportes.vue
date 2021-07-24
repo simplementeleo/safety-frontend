@@ -33,7 +33,7 @@
             </div>
             <div class="div5 alignY"> <h3 style="color: white">In-Out Zona</h3></div>
             <div class="div6"> </div>
-            <div class="div7"> </div>
+            <div class="div7 alignY"> <div class="alertPillGreen">2</div></div>
             <div class="div8 alignY"> <h3 style="color: white">Reportes</h3></div>
             <div class="div9">
                 <div
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="div11 alignY"> <h3 style="color: white">Alertas</h3> </div>
-            <div class="div12"> </div>
+            <div class="div12 alignY"> <div class="alertPillPink">1</div></div>
           </div>
           <div class="arrowContainer"><div class="arrow"></div></div>
           
@@ -118,7 +118,26 @@
     border-bottom: 4px solid #010030; ;
     width: 10px; height: 10px;
     transform: rotate(-135deg);
-    }
+}
+
+.alertPillGreen {
+  border-radius: 5px;
+  width: 40px;
+  height: 20px;
+  background-color: #4EE273;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+.alertPillPink {
+  border-radius: 5px;
+  width: 40px;
+  height: 20px;
+  background-color: #F37DB8;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
 
 
 	
