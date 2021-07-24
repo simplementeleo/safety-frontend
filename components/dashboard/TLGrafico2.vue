@@ -1,18 +1,18 @@
 <template>
-  <div v-if="deteccionesMensual != undefined">
+  <div v-if="deteccionesMensual != undefined"><!--  -->
     <div class="row">
       <div class="col-md-12">
         <!-- AREA CHART -->
         <div class="box bgg-sfbox">
           <div class="box-header flex spaceAround" style="color: white">
-            <div class="box-tools" style="margin-left: 10px; margin-top: 2px" >
+            <div class="box-tools" style="margin-left: 10px; margin-top: 8px" >
               <h3 class="box-title">
               Uso EPP
               {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}
             </h3>
             </div>
             
-            <div class="box-tools">
+            <div class="box-tools" style="margin-top: 1px">
               <button
                 type="button"
                 class="btn btn-primary"

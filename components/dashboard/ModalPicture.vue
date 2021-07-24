@@ -54,7 +54,7 @@
             <img
               id="scream"
               :src="resultadoml.url"
-              alt="The Scream"
+              alt="Cámara"
               width="80%"
               height="277"
               style="display: none"

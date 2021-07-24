@@ -5,10 +5,10 @@
     </section>
     <div class="wrapper">
       <header class="headerStyle">
-        <div class="safetyLogo" style="margin-top: -5px;">
+        <div class="safetyLogo">
           <strong>SAFETY</strong>
         </div>
-        <div class="col-md-8"><input class="form-control col-md-8 sfSearchbar" type="search" placeholder="Buscar" aria-label="Buscar"></div>
+        <div class="col-md-8" style="margin-top: 4px"><input class="form-control col-md-8 sfSearchbar" type="search" placeholder="Buscar" aria-label="Buscar"></div>
         
         <!-- Logo -->
         <!-- 

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="deteccionesConteoDiario != undefined">
-    <div class="row">
+  <div><!--  v-if="deteccionesConteoDiario != undefined"-->
+    <div class="row" style="margin-top: -25px;">
       <div class="col-md-12">
         <!-- AREA CHART -->
         <div class="box bgg-sfbox">
@@ -13,14 +13,16 @@
               class="chart"
               id="revenue-chart"
               style="height: 300px"
-              v-show="deteccionesConteoDiario.cantidadHorario.length > 0"
+              
             ></div>
+            <!-- v-show="deteccionesConteoDiario.cantidadHorario.length > 0"-->
 
-            <div class="text-center">
+            <!--
+              <div class="text-center">
               <h4 v-show="deteccionesConteoDiario.cantidadHorario.length == 0">
                 <strong>Aun no tenemos datos para mostrarte</strong>
               </h4>
-              <!-- 
+              
               <div>
                 <span
                   style="background-color: #003b60; padding: 1px 40px 1px 1px"
@@ -35,9 +37,10 @@
                 ></span>
                 Uso chaleco
               </div>
-              -->
-
+              
             </div>
+            -->
+        
           </div>
         </div>
       </div>

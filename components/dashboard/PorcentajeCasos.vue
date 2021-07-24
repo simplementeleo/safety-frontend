@@ -13,11 +13,12 @@
         </div>
         -->
 
-        <div class="box-body chart-responsive">
+        <div class="box-body chart-responsive" style="margin-top: -35px;">
           <div class="row">
 
-             <div class="col-lg-12 col-xs-12">
+             <div><!--col-lg-12 col-xs-12 -->
               <div class="small-box bgg-sfbox">
+
                 <div class="inner">
                   <h4 style="color: white; text-align: center">
                     <strong>Uso de Casco</strong>
@@ -34,13 +35,7 @@
                   <div id="percent-helmet"></div>
                   <!-- <canvas id="percent-helmet" width="400" height="400"></canvas> -->
                 </div>
-              </div>
-            </div>
 
-
-
-            <div class="col-lg-12 col-xs-12">
-              <div class="small-box bgg-sfbox">
                 <div class="inner">
                   <h4 class="center-white">
                     <strong>Uso de Chaleco</strong>
@@ -56,10 +51,38 @@
                   </h4>
                   <div id="percent-vest"></div>
 
-                  <!-- <canvas id="percent-vest" width="400" height="400"></canvas> -->
+                  
                 </div>
+
               </div>
             </div>
+
+
+            <!-- 
+            <div class="col-lg-12 col-xs-12">
+              <div class="small-box bgg-sfbox">
+
+                <div class="inner">
+                  <h4 class="center-white">
+                    <strong>Uso de Chaleco</strong>
+                  </h4>
+                  <h4
+                    class="center-white center-over"
+                    v-show="
+                      obtenerPersonasConChaleco() == 0 &&
+                      obtenerPersonasSinChaleco() == 0
+                    "
+                  >
+                    Generando datos...
+                  </h4>
+                  <div id="percent-vest"></div>
+
+                  
+                </div>
+
+              </div>
+            </div>
+            -->
 
 
           </div>
@@ -133,7 +156,7 @@ export default {
       ]);
 
       var options = {
-        pieHole: 0.8,
+        pieHole: 0.4,
         backgroundColor: "transparent",
         legend: { position: "bottom", textStyle: { color: "white" } },
         
@@ -157,7 +180,7 @@ export default {
       ]);
 
       var options = {
-        pieHole: 0.8,
+        pieHole: 0.4,
         backgroundColor: "transparent",
         legend: { position: "bottom", textStyle: { color: "white" } },
         slices: {

@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #010030">
+  <div style="background-color: #010030; margin-top: -10px;">
     
     <div class="row" v-show="resultadoml != undefined">
       
@@ -22,11 +22,11 @@
     </div>
     <br />
     <div class="row" v-if="resultadoml != undefined">
-      <div class="col-md-3">
+      <div class="col-md-3 primerBloque">
         <ModalPicture />
         <MenuReportes />
       </div>
-      <div class="col-md-9">
+      <div class="col-md-9" style="margin-top: -10px">
         <CantidadCasos />
       </div>
       <div class="col-md-9">
@@ -117,11 +117,14 @@
     },
   };
 
-  console.log("ENTRANDO AL INDEX");
 </script>
 
 <style>
-  
-  
+@media screen and (min-width: 480px) {
+  .primerBloque {
+  margin-right: -15px;
+  margin-left: 12px
+}
+}
 </style>
 

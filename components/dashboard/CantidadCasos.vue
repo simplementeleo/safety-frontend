@@ -17,8 +17,8 @@
         <div class="box-body chart-responsive">
           <div class="row">
 
-            <div class="col-lg-4 col-xs-12">
-              <div class="small-box bgg-ingresos flexSpace">
+            <div class="col-lg-4 col-xs-12" style="padding-right: 0">
+              <div class="small-box bgg-ingresos flexSpace" style="margin-left: 0px; margin-right: 0px">
                 <div class="inner">
                   <div
                     class="icon"
@@ -63,7 +63,7 @@
               </div>
             </div>
             -->
-            <div class="col-lg-4 col-xs-6">
+            <div class="col-lg-4 col-xs-6" style="padding-right: 0">
               <div class="small-box bgg-cascos flexSpace">
                 <div class="inner">
                   <div

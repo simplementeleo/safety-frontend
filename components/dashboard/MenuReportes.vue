@@ -13,12 +13,12 @@
                   >
                     <img
                       src="@/assets/icons/obrero.png"
-                      style="width: 60px"
+                      style="width: 82px"
                       alt="EPP"
                     />
                 </div>
             </div>
-            <div class="div3"> <h3 style="color: white">EPP</h3></div>
+            <div class="div3 alignY"> <h3 style="color: white">EPP</h3></div>
             <div class="div4">
                 <div
                     class="icon"
@@ -26,15 +26,15 @@
                   >
                     <img
                       src="@/assets/icons/inout.png"
-                      style="width: 60px"
+                      style="width: 82px"
                       alt="InOut"
                     />
                 </div>
             </div>
-            <div class="div5"> <h3 style="color: white">In-Out Zona</h3></div>
+            <div class="div5 alignY"> <h3 style="color: white">In-Out Zona</h3></div>
             <div class="div6"> </div>
             <div class="div7"> </div>
-            <div class="div8"> <h3 style="color: white">Reportes</h3></div>
+            <div class="div8 alignY"> <h3 style="color: white">Reportes</h3></div>
             <div class="div9">
                 <div
                     class="icon"
@@ -42,7 +42,7 @@
                   >
                     <img
                       src="@/assets/icons/reportes.png"
-                      style="width: 60px"
+                      style="width: 82px"
                       alt="Reportes"
                     />
                 </div>
@@ -55,12 +55,12 @@
                   >
                     <img
                       src="@/assets/icons/alertas.png"
-                      style="width: 60px"
+                      style="width: 84px"
                       alt="Alertas"
                     />
                 </div>
             </div>
-            <div class="div11"> <h3 style="color: white">Alertas</h3> </div>
+            <div class="div11 alignY"> <h3 style="color: white">Alertas</h3> </div>
             <div class="div12"> </div>
           </div>
           <div class="arrowContainer"><div class="arrow"></div></div>
@@ -70,6 +70,11 @@
 </template>
 
 <style scoped>
+
+  .alignY {
+    display: flex;
+    align-items: center;
+  }
 
   .mainbox {
     background-color: #2B2B4B; 
@@ -114,5 +119,7 @@
     width: 10px; height: 10px;
     transform: rotate(-135deg);
     }
+
+
 	
 </style>
