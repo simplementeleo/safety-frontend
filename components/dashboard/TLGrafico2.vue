@@ -36,14 +36,16 @@
               class="chart"
               id="semestral-chart"
               style="height: 300px"
-              v-show="deteccionesMensual.porcentajeMes.length > 0"
+              
             ></div>
-            <div
+            <!-- v-show="deteccionesMensual.porcentajeMes.length > 0"-->
+            <!-- <div
               class="text-center"
               v-show="deteccionesMensual.porcentajeMes.length == 0"
             >
               <h4><strong>Aun no tenemos datos para mostrarte</strong></h4>
-            </div>
+            </div>-->
+            
 
             <!-- 
             <div class="text-center">
@@ -102,7 +104,51 @@ export default {
   },
   async mounted() {
     await this.getDeteccionesMensual();
-    this.actualChart = new Morris.Bar({
+
+    console.log("detecciones mensual");
+    console.log(this.deteccionesMensual.porcentajeMes.length);
+
+    if(this.deteccionesMensual.porcentajeMes.length == 0){
+      const datosDummy = [
+        {mes: 'Enero', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Febrero', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Marzo', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Abril', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Mayo', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Junio', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Julio', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Agosto', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Septiembre', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Octubre', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Noviembre', porcentajeCasco: 0, porcentajeChaleco: 0},
+        {mes: 'Diciembre', porcentajeCasco: 0, porcentajeChaleco: 0},
+      ]
+
+      this.actualChart = new Morris.Bar({
+      element: "semestral-chart",
+      resize: true,
+      data: datosDummy.slice(0, 6),
+      hideHover: 'always',
+      hoverCallback: function (index, options, content, row) {
+        let title = "<b>" + row.mes + "</b>";
+        let item1 = "<br/> Uso casco:" + row.porcentajeCasco + "%";
+        let item2 = "<br/> Uso chaleco:" + row.porcentajeChaleco + "%";
+        return title + item1 + item2;
+      },
+      xkey: "mes",
+      ykeys: ["porcentajeCasco", "porcentajeChaleco"],
+      ymax: 100,
+      labels: ["Uso casco", "Uso chaleco"],
+      barColors: ["#4EE273", "#0C75F4"],
+      //xLabelFormat:function (x) { console.log(x); return x }
+      });
+
+
+
+
+    }
+    else{
+      this.actualChart = new Morris.Bar({
       element: "semestral-chart",
       resize: true,
       data: this.deteccionesMensual.porcentajeMes.slice(0, 6),
@@ -115,10 +161,15 @@ export default {
       },
       xkey: "mes",
       ykeys: ["porcentajeCasco", "porcentajeChaleco"],
+      ymax: 100,
       labels: ["Uso casco", "Uso chaleco"],
       barColors: ["#4EE273", "#0C75F4"],
       //xLabelFormat:function (x) { console.log(x); return x }
-    });
+      });
+
+    }
+
+    
   },
 };
 </script>

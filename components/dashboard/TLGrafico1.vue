@@ -71,30 +71,83 @@ export default {
   },
   async mounted() {
     await this.getDeteccionesConteoDiario();
+    
     if (this.deteccionesConteoDiario.cantidadHorario == undefined) {
-      return false;
+      return false
     }
+    
+    if (this.deteccionesConteoDiario.cantidadHorario.length == 0) {
+        //datos para llenar una tabla vacia
+        let datosDummy = [];
+        for(let contador=7; contador<20;contador++){
+          if(contador < 12){
+            let horaDummy = {fechaHora: `2021-01-01 0${contador}:00`,
+            porcentajeCasco: 0,
+            porcentajeChaleco: 0}
+            datosDummy.push(horaDummy)
+          }
+          else{
+            let horaDummy = {fechaHora: `2021-01-01 ${contador}:00`,
+            porcentajeCasco: 0,
+            porcentajeChaleco: 0}
+            datosDummy.push(horaDummy)
+          }
+          
+        }
+        console.log("datos dummy:")
+        console.log(datosDummy)
+        //Si no hay datos, mostrar lo siguiente
 
-    Morris.Area({
-      element: "revenue-chart",
-      resize: true,
-      data: this.deteccionesConteoDiario.cantidadHorario,
-      hoverCallback: function (index, options, content, row) {
-        let title =
-          "<b>" +
-          row.fechaHora.substring(row.fechaHora.indexOf(" ") + 1) +
-          "</b>";
-        let item1 = "<br/> Uso casco:" + row.porcentajeCasco + "%";
-        let item2 = "<br/> Uso chaleco:" + row.porcentajeChaleco + "%";
-        return title + item1 + item2;
-      },
-      xkey: "fechaHora",
-      hideHover: true,
-      smooth: true,
-      ykeys: ["porcentajeCasco", "porcentajeChaleco"],
-      labels: ["Uso casco", "Uso chaleco"],
-      lineColors: ["#4EE273", "#0C75F4"],
-    });
+        console.log("cero detecciones")
+        Morris.Line({
+        element: "revenue-chart",
+        resize: true,
+        data: datosDummy,
+        hoverCallback: function (index, options, content, row) {
+          let title =
+            "<b>" +
+            "Hora" +
+            "</b>";
+          let item1 = "<br/> Uso casco:" + row.porcentajeCasco + "%";
+          let item2 = "<br/> Uso chaleco:" + row.porcentajeChaleco + "%";
+          return title + item1 + item2;
+        },
+        xkey: "fechaHora",
+        hideHover: 'always',
+        smooth: true,
+        ymax: 100,
+        ykeys: ["porcentajeCasco", "porcentajeChaleco"],
+        labels: ["Uso casco", "Uso chaleco"],
+        lineColors: ["#4EE273", "#0C75F4"],
+      });
+
+    }
+    else {
+      //Si hay datos, mostrar
+      Morris.Line({
+        element: "revenue-chart",
+        resize: true,
+        data: this.deteccionesConteoDiario.cantidadHorario,
+        hoverCallback: function (index, options, content, row) {
+          let title =
+            "<b>" +
+            row.fechaHora.substring(row.fechaHora.indexOf(" ") + 1) +
+            "</b>";
+          let item1 = "<br/> Uso casco:" + row.porcentajeCasco + "%";
+          let item2 = "<br/> Uso chaleco:" + row.porcentajeChaleco + "%";
+          return title + item1 + item2;
+        },
+        xkey: "fechaHora",
+        hideHover: true,
+        smooth: true,
+        ymax: 100,
+        ykeys: ["porcentajeCasco", "porcentajeChaleco"],
+        labels: ["Uso casco", "Uso chaleco"],
+        lineColors: ["#4EE273", "#0C75F4"],
+      });
+
+    }
+    
   },
 };
 </script>
