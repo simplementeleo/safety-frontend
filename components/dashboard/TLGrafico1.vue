@@ -12,7 +12,7 @@
             <div
               class="chart"
               id="revenue-chart"
-              style="height: 300px"
+              style="height: 24.5vh"
               
             ></div>
             <!-- v-show="deteccionesConteoDiario.cantidadHorario.length > 0"-->
@@ -71,7 +71,7 @@ export default {
   },
   async mounted() {
     await this.getDeteccionesConteoDiario();
-    
+    //modificar tabla vacia
     if (this.deteccionesConteoDiario.cantidadHorario == undefined) {
       return false
     }
@@ -79,7 +79,7 @@ export default {
     if (this.deteccionesConteoDiario.cantidadHorario.length == 0) {
         //datos para llenar una tabla vacia
         let datosDummy = [];
-        for(let contador=7; contador<20;contador++){
+        for(let contador=6; contador<19;contador++){
           if(contador < 12){
             let horaDummy = {fechaHora: `2021-01-01 0${contador}:00`,
             porcentajeCasco: 0,

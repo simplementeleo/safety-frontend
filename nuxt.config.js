@@ -140,6 +140,7 @@ export default {
   axios: {
     //baseURL: 'https://dev.compilando.dev:30010/'
     baseURL: 'http://localhost:8200/'
+    
     //'https://safetytest.azurewebsites.net/'
     // baseURL: 'http://localhost:8200/',
   },

@@ -35,7 +35,7 @@
             <div
               class="chart"
               id="semestral-chart"
-              style="height: 300px"
+              style="height: 24.5vh"
               
             ></div>
             <!-- v-show="deteccionesMensual.porcentajeMes.length > 0"-->
@@ -104,10 +104,8 @@ export default {
   },
   async mounted() {
     await this.getDeteccionesMensual();
-
-    console.log("detecciones mensual");
-    console.log(this.deteccionesMensual.porcentajeMes.length);
-
+    
+    //Llenar tabla vacia
     if(this.deteccionesMensual.porcentajeMes.length == 0){
       const datosDummy = [
         {mes: 'Enero', porcentajeCasco: 0, porcentajeChaleco: 0},
