@@ -82,7 +82,7 @@
               Canvas no es soportado.</canvas
             >
           </div>
-          <div class="modal-footer" style="display: flex; justify-content: center">
+          <div class="modal-footer" style="display: flex; justify-content: center; border: none">
             <button type="button" class="btn btn-primary" data-dismiss="modal">
               Cerrar
             </button>

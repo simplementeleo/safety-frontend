@@ -71,12 +71,15 @@ export default {
   },
   async mounted() {
     await this.getDeteccionesConteoDiario();
-    //modificar tabla vacia
+    
+    /* 
     if (this.deteccionesConteoDiario.cantidadHorario == undefined) {
       return false
-    }
-    
-    if (this.deteccionesConteoDiario.cantidadHorario.length == 0) {
+    }*/
+
+    //Crear datos
+    if (this.deteccionesConteoDiario == undefined ||
+      this.deteccionesConteoDiario.cantidadHorario.length == 0) {
         //datos para llenar una tabla vacia
         let datosDummy = [];
         for(let contador=6; contador<19;contador++){
@@ -94,11 +97,8 @@ export default {
           }
           
         }
-        console.log("datos dummy:")
-        console.log(datosDummy)
         //Si no hay datos, mostrar lo siguiente
 
-        console.log("cero detecciones")
         Morris.Line({
         element: "revenue-chart",
         resize: true,

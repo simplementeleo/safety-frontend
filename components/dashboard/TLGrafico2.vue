@@ -1,5 +1,5 @@
 <template>
-  <div v-if="deteccionesMensual != undefined"><!--  -->
+  <div><!--v-if="deteccionesMensual != undefined"  -->
     <div class="row">
       <div class="col-md-12">
         <!-- AREA CHART -->
@@ -12,7 +12,7 @@
             </h3>
             </div>
             
-            <div class="box-tools" style="margin-top: 1px">
+            <div class="box-tools" style="margin-top: 1px" v-if="deteccionesMensual != undefined">
               <button
                 type="button"
                 class="btn btn-primary"
@@ -35,7 +35,7 @@
             <div
               class="chart"
               id="semestral-chart"
-              style="height: 24.5vh"
+              style="height: 25vh"
               
             ></div>
             <!-- v-show="deteccionesMensual.porcentajeMes.length > 0"-->
@@ -106,7 +106,8 @@ export default {
     await this.getDeteccionesMensual();
     
     //Llenar tabla vacia
-    if(this.deteccionesMensual.porcentajeMes.length == 0){
+    if(this.deteccionesMensual == undefined ||
+      this.deteccionesMensual.porcentajeMes.length == 0){
       const datosDummy = [
         {mes: 'Enero', porcentajeCasco: 0, porcentajeChaleco: 0},
         {mes: 'Febrero', porcentajeCasco: 0, porcentajeChaleco: 0},
