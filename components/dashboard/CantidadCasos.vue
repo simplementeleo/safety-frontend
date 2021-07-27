@@ -13,8 +13,12 @@
           <div class="box-tools pull-right"></div>
         </div>
         -->
-        
-        <div class="box-body chart-responsive">
+        <div class="box-body chart-responsive bgg-sfbox flexSpace" style="margin: 9px 9px;">
+          <div><h4><strong>Indicadores Real Time</strong></h4></div>
+          <div><h4><strong>{{ formatDate(resultadoml.horaDeteccion) }}</strong></h4></div>
+        </div>
+
+        <div class="box-body chart-responsive" style="margin-top: 10px; margin-bottom: -4px">
           <div class="row">
 
             <div class="col-lg-4 col-xs-12" style="padding-right: 0">
@@ -34,7 +38,7 @@
                 </div>
 
                 <div class="flexCenter" style="text-align: center; flex-direction: column">
-                  <p style="margin: 1px">Ingresos al sector<br /></p>
+                  <p style="margin: 1px">Ingresos Recientes<br /></p>
                   <h3 style="margin: 1px">{{ obtenerPersonas() }}</h3>
                 </div>
               </div>
@@ -80,7 +84,7 @@
                 </div>
                 <div class="flexCenter" style="text-align: center; flex-direction: column">
                   <p style="margin: 1px">
-                    Uso Casco
+                    % Acumulado de Uso Casco
                     <!-- 15-02-2021 18:09 -->
                   </p>
                   <h3 style="margin: 1px">{{ obtenerPersonasConCasco() }}</h3>
@@ -129,7 +133,7 @@
                 </div>
                 <div  class="flexCenter" style="text-align: center; flex-direction: column">
                   <p style="margin: 1px">
-                    Uso Chaleco <br />
+                    % Acumulado de Uso Chaleco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
                   <h3  style="margin: 1px">{{ obtenerPersonasConChaleco() }}</h3>
@@ -232,6 +236,11 @@ export default {
   color: white;
   text-align: center;
 
+}
+.bgg-sfbox {
+  background-color: #2B2B4B;
+  border-radius: 10px;
+  color: white;
 }
 .bgg-ingresos {
   background-image: linear-gradient(to right, #7749EE , #B539F9);

@@ -1,6 +1,6 @@
 <template>
   <section class="box mainbox">
-    <div class="box-header" style="text-align: center">
+    <div class="box-header" style="text-align: center; margin-bottom: 3vh">
           <h3 class="box-title" style="color: #010030;"><strong>Menu</strong></h3>
     </div>
     <div style="color: white">
@@ -89,7 +89,7 @@
     grid-template-columns: 2fr 3fr 1fr;
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-row-gap: 4vh;
   }
 
 .div1 { grid-area: 1 / 3 / 2 / 4; }
@@ -108,7 +108,7 @@
 .arrowContainer {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 4vh;
   margin-bottom: 10px;
 
 }

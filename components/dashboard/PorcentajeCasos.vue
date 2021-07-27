@@ -18,10 +18,15 @@
 
              <div><!--col-lg-12 col-xs-12 -->
               <div class="small-box bgg-sfbox">
-
                 <div class="inner">
                   <h4 style="color: white; text-align: center">
-                    <strong>Uso de Casco</strong>
+                    <strong>Porcentaje Uso vs no Uso acumulado diario</strong>
+                  </h4>
+                </div>
+
+                <div class="inner">
+                  <h4 class="center-white" style="margin-bottom: 0">
+                    <strong>Casco</strong>
                   </h4>
                   <h4
                     class="center-white center-over"
@@ -37,8 +42,8 @@
                 </div>
 
                 <div class="inner">
-                  <h4 class="center-white">
-                    <strong>Uso de Chaleco</strong>
+                  <h4 class="center-white" style=" margin-bottom: 0">
+                    <strong>Chaleco</strong>
                   </h4>
                   <h4
                     class="center-white center-over"

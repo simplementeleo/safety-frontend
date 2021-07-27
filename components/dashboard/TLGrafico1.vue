@@ -5,14 +5,14 @@
         <!-- AREA CHART -->
         <div class="box bgg-sfbox">
           <div class="box-header" style="text-align: center; color: white">
-            <h3 class="box-title">Porcentaje de uso EPP Jornada</h3>
+            <h3 class="box-title"><strong>Porcentaje de uso EPP Jornada</strong></h3>
             <div class="box-tools pull-right"></div>
           </div>
           <div class="box-body chart-responsive">
             <div
               class="chart"
               id="revenue-chart"
-              style="height: 24.5vh"
+              style="height: 29vh"
               
             ></div>
             <!-- v-show="deteccionesConteoDiario.cantidadHorario.length > 0"-->

@@ -7,8 +7,8 @@
           <div class="box-header flex spaceAround" style="color: white">
             <div class="box-tools" style="margin-left: 10px; margin-top: 8px" >
               <h3 class="box-title">
-              Uso EPP
-              {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}
+              <strong>Porcentaje de Uso EPP
+              {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}</strong>
             </h3>
             </div>
             
@@ -35,7 +35,7 @@
             <div
               class="chart"
               id="semestral-chart"
-              style="height: 25vh"
+              style="height: 28.5vh"
               
             ></div>
             <!-- v-show="deteccionesMensual.porcentajeMes.length > 0"-->
