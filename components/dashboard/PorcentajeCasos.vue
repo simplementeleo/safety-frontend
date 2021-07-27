@@ -38,7 +38,8 @@
                     Generando datos...
                   </h4>
                   <div id="percent-helmet"></div>
-                  <!-- <canvas id="percent-helmet" width="400" height="400"></canvas> -->
+                  
+                  <!-- <canvas id="percent-helmet" height="30vh"></canvas>-->
                 </div>
 
                 <div class="inner">
@@ -169,6 +170,7 @@ export default {
           0: { color: "#4EE273" },
           1: { color: "white" },
         },
+        
       };
 
       var chart = new google.visualization.PieChart(
@@ -192,6 +194,7 @@ export default {
           0: { color: "#0C75F4" },
           1: { color: "white" },
         },
+        
       };
 
       var chart = new google.visualization.PieChart(

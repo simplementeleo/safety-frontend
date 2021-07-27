@@ -89,7 +89,8 @@
     grid-template-columns: 2fr 3fr 1fr;
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 4vh;
+    grid-row-gap: 2vh;
+
   }
 
 .div1 { grid-area: 1 / 3 / 2 / 4; }
@@ -108,8 +109,7 @@
 .arrowContainer {
   display: flex;
   justify-content: center;
-  margin-top: 4vh;
-  margin-bottom: 10px;
+  margin-top: 11vh;
 
 }
 .arrow {

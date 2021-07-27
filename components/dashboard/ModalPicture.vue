@@ -17,6 +17,7 @@
               
             />
         </span>
+        <!-- -->
         
         <a data-toggle="modal"
         data-target="#modalCaptura">
@@ -24,9 +25,7 @@
               id="scream"
               :src="resultadoml.url"
               alt="The Scream"
-              width="100%"
-              height="70%"
-             
+              style="max-width: 100%; max-height: 90%"
             />
         </a>
       </div>
@@ -248,6 +247,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 img {
   border-radius: 10px;
