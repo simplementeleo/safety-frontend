@@ -170,6 +170,7 @@ export default {
           0: { color: "#4EE273" },
           1: { color: "white" },
         },
+        pieSliceTextStyle: {color: '#2B2B4B'},
         
       };
 
@@ -194,6 +195,7 @@ export default {
           0: { color: "#0C75F4" },
           1: { color: "white" },
         },
+        pieSliceTextStyle: {color: '#2B2B4B'},
         
       };
 
