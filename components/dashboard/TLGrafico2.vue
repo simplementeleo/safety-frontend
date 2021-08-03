@@ -3,34 +3,33 @@
     <div class="row">
       <div class="col-md-12">
         <!-- AREA CHART -->
-        <div class="box bgg-sfbox">
+        <div class="box bgg-sfbox radius-general">
           <div class="box-header flex spaceAround" style="color: white">
-            <div class="box-tools" style="margin-left: 10px; margin-top: 8px" >
+            <div class="box-tools">
               <h3 class="box-title">
-              <strong>Porcentaje de Uso EPP
-              {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}</strong>
-            </h3>
+                <strong>Porcentaje de Uso EPP
+                {{ this.actual == 0 ? "Primer Semestre" : "Segundo Semestre" }}</strong>
+              </h3>
             </div>
-            
-            <div class="box-tools" style="margin-top: 1px" v-if="deteccionesMensual != undefined">
+          </div>
+          <div class="buttons"  v-if="deteccionesMensual != undefined">
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn"
                 data-widget="remove"
                 @click="siguiente(0)"
               >
-                Primer Semestre
+                Primer semestre
               </button>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn"
                 data-widget="remove"
                 @click="siguiente(6)"
               >
-                Segundo Semestre
+                Segundo semestre
               </button>
             </div>
-          </div>
           <div class="box-body chart-responsive">
             <div
               class="chart"
@@ -169,6 +168,8 @@ export default {
     }
 
     
+
+    
   },
 };
 </script>
@@ -177,13 +178,31 @@ export default {
 <style scoped>
 .bgg-sfbox {
   background-color: #2B2B4B;
-  border-radius: 10px;
   border: none;
+  padding: 10px;
 }
 .flex {
   display: flex;
 }
 .spaceAround{
   justify-content: space-around;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.buttons button {
+  border-radius: 50px;
+  height: 30px;
+  transition: all .2s ease-in-out;
+  background: linear-gradient(45deg, #0C75F4, #54A7EC);
+  margin: 15px 15px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.buttons button:hover {
+  transform: translateY(-5px);
 }
 </style>

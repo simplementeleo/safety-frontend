@@ -2,7 +2,7 @@
   <div>
     <div v-if="resultadoml != undefined">
       <!-- Small boxes (Stat box) -->
-      <div class="box" style="background-color:rgba(0, 0, 0, 0); border: none;">
+      <div class="box row" style="background-color:rgba(0, 0, 0, 0); border: none; padding: 0 10px;">
 
         <!-- 
         <div class="box-header" style="text-align: center">
@@ -13,28 +13,25 @@
           <div class="box-tools pull-right"></div>
         </div>
         -->
-        <div class="box-body chart-responsive bgg-sfbox flexSpace" style="margin: 9px 9px;">
-          <div><h4><strong>Indicadores Real Time</strong></h4></div>
-          <div><h4><strong>{{ formatDate(resultadoml.horaDeteccion) }}</strong></h4></div>
+        <div class="col-md-12 box-body bgg-sfbox radius-general flexSpace mt-res">
+          <div>
+            <h4><strong>Indicadores Real Time</strong></h4>
+          </div>
+          <div>
+            <h4><strong>{{ formatDate(resultadoml.horaDeteccion) }}</strong></h4>
+          </div>
         </div>
 
-        <div class="box-body chart-responsive" style="margin-top: 10px; margin-bottom: -4px">
+        <div class="box-body">
           <div class="row">
 
-            <div class="col-lg-4 col-xs-12" style="padding-right: 0">
-              <div class="small-box bgg-ingresos flexSpace" style="margin-left: 0px; margin-right: 0px">
+            <div class="col-md-12 col-xs-12 mt-13">
+              <div class="small-box radius-general bgg-ingresos flexSpace">
                 <div class="inner">
-                  <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/obrero.png"
-                      style="width: 60px"
-                      alt="etapas"
-                    />
+                  <div class="icon" style="position: initial !important; font-size: 48px">
+                    <img src="@/assets/icons/obrero.png" style="width: 60px" alt="etapas" />
                   </div>
-                  
+
                 </div>
 
                 <div class="flexCenter" style="text-align: center; flex-direction: column">
@@ -67,20 +64,13 @@
               </div>
             </div>
             -->
-            <div class="col-lg-4 col-xs-6" style="padding-right: 0">
-              <div class="small-box bgg-cascos flexSpace">
+            <div class="col-md-6 col-xs-6 mt-13">
+              <div class="small-box bgg-cascos radius-general flexSpace">
                 <div class="inner">
-                  <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/casco.png"
-                      style="width: 60px"
-                      alt="etapas"
-                    />
+                  <div class="icon" style="position: initial !important; font-size: 48px">
+                    <img src="@/assets/icons/casco.png" style="width: 60px" alt="etapas" />
                   </div>
-                  
+
                 </div>
                 <div class="flexCenter" style="text-align: center; flex-direction: column">
                   <p style="margin: 1px">
@@ -115,31 +105,40 @@
               </div>
             </div>
             -->
-
-            <div class="col-lg-4 col-xs-6">
-              <div class="small-box bgg-chalecos flexSpace">
+            <div class="col-md-6 col-xs-6 mt-13">
+              <div class="small-box radius-general bgg-chalecos flexSpace">
                 <div class="inner">
-                  <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/chaleco.png"
-                      style="width: 60px"
-                      alt="etapas"
-                    />
+                  <div class="icon" style="position: initial !important; font-size: 48px">
+                    <img src="@/assets/icons/chaleco.png" style="width: 60px" alt="etapas" />
                   </div>
-                  
+
                 </div>
-                <div  class="flexCenter" style="text-align: center; flex-direction: column">
+                <div class="flexCenter" style="text-align: center; flex-direction: column">
                   <p style="margin: 1px">
                     % Acumulado de Uso Chaleco <br />
                     <!-- 15-02-2021 18:09 -->
                   </p>
-                  <h3  style="margin: 1px">{{ obtenerPersonasConChaleco() }}</h3>
+                  <h3 style="margin: 1px">{{ obtenerPersonasConChaleco() }}</h3>
                 </div>
               </div>
             </div>
+
+            <div class="col-md-6 col-xs-12 mt-13">
+              <PorcentajeCasos />
+            </div>
+
+            <div class="col-md-6 col-xs-12 mt-13">
+              <div class="row">
+                <div class="col-md-12">
+                  <TLGrafico1 />
+                </div>
+                 <div class="col-md-12 mt-13">
+                  <TLGrafico2 />
+                </div>
+              </div>
+            </div>
+
+
 
 
           </div>
@@ -150,120 +149,155 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from "vuex";
-export default {
-  data() {
-    return {};
-  },
-  methods: {
-    ...mapActions({
-      getWeeklyAverage: "resultadoml/getWeeklyAverageData",
-      getLastByCamera: "resultadoml/getLastByCamera",
-    }),
-    ...mapMutations({
-      setResultadoml: "resultadoml/setResultadoml",
-    }),
-    formatDate(fecha) {
-      let options = {
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        second: "numeric",
-        hour12: false,
-      };
-      return new Intl.DateTimeFormat("es-CL", options).format(new Date(fecha));
+  import PorcentajeCasos from "@/components/dashboard/PorcentajeCasos";
+  import TLGrafico1 from "@/components/dashboard/TLGrafico1.vue";
+  import TLGrafico2 from "@/components/dashboard/TLGrafico2.vue";
+  import {
+    mapMutations,
+    mapGetters,
+    mapActions
+  } from "vuex";
+  export default {
+    components: {
+      PorcentajeCasos,
+      TLGrafico1,
+      TLGrafico2
     },
-    calcularTotalCasos(classNumber) {
-      let total = 0;
-      this.resultadoml.personaResultadoml.forEach((persona) => {
-        persona.predTypePersona.forEach((ptp) => {
-          if (ptp.predType.classNumber == classNumber) total++;
+    data() {
+      return {};
+    },
+    methods: {
+      ...mapActions({
+        getWeeklyAverage: "resultadoml/getWeeklyAverageData",
+        getLastByCamera: "resultadoml/getLastByCamera",
+      }),
+      ...mapMutations({
+        setResultadoml: "resultadoml/setResultadoml",
+      }),
+      formatDate(fecha) {
+        let options = {
+          year: "numeric",
+          month: "numeric",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: false,
+        };
+        return new Intl.DateTimeFormat("es-CL", options).format(new Date(fecha));
+      },
+      calcularTotalCasos(classNumber) {
+        let total = 0;
+        this.resultadoml.personaResultadoml.forEach((persona) => {
+          persona.predTypePersona.forEach((ptp) => {
+            if (ptp.predType.classNumber == classNumber) total++;
+          });
         });
-      });
-      return total;
+        return total;
+      },
+      obtenerPersonas() {
+        let total = 0;
+        this.resultadoml.personaResultadoml.forEach((persona) => {
+          total++;
+        });
+        return total;
+      },
+      obtenerPersonasConCasco() {
+        return this.calcularTotalCasos(1);
+      },
+      obtenerPersonasSinCasco() {
+        return this.calcularTotalCasos(2);
+      },
+      obtenerPersonasConChaleco() {
+        return this.calcularTotalCasos(3);
+      },
+      obtenerPersonasSinChaleco() {
+        return this.calcularTotalCasos(0);
+      },
     },
-    obtenerPersonas() {
-      let total = 0;
-      this.resultadoml.personaResultadoml.forEach((persona) => {
-        total++;
-      });
-      return total;
+    computed: {
+      ...mapGetters({
+        resultadoml: "resultadoml/getResultadoml",
+      }),
     },
-    obtenerPersonasConCasco() {
-      return this.calcularTotalCasos(1);
-    },
-    obtenerPersonasSinCasco() {
-      return this.calcularTotalCasos(2);
-    },
-    obtenerPersonasConChaleco() {
-      return this.calcularTotalCasos(3);
-    },
-    obtenerPersonasSinChaleco() {
-      return this.calcularTotalCasos(0);
-    },
-  },
-  computed: {
-    ...mapGetters({
-      resultadoml: "resultadoml/getResultadoml",
-    }),
-  },
-  async mounted() {},
-};
+    async mounted() {},
+  };
+
 </script>
 
 
 <style scoped>
-@media (max-width: 767px) {
-  .small-box .icon {
-    display: inline !important;
+  @media (max-width: 767px) {
+    .small-box .icon {
+      display: inline !important;
+    }
+    .small-box {
+      padding: 10px;
+    }
   }
-}
 
-.bgg-blue {
-  background-color: #003b60;
-  color: white;
-  text-align: center;
-}
-.bgg-yellow {
-  background-color: #ffcd00;
-  color: white;
-  text-align: center;
-}
-.bgg-grey {
-  background-color: #f4f4f4;
-  color: white;
-  text-align: center;
+  .small-box {
+    padding: 20px;
+  }
 
-}
-.bgg-sfbox {
-  background-color: #2B2B4B;
-  border-radius: 10px;
-  color: white;
-}
-.bgg-ingresos {
-  background-image: linear-gradient(to right, #7749EE , #B539F9);
-  color: white;
-  border-radius: 10px;
-}
-.bgg-cascos {
-  background-image: linear-gradient(to right, #4EE273 ,#4AE4C4);
-  color: white;
-  border-radius: 10px;
-}
-.bgg-chalecos {
-  background-image: linear-gradient(to right, #0C75F4 ,#54A7EC);
-  color: white;
-  border-radius: 10px;
-}
-.flexSpace {
-  display: flex;
-  justify-content: space-around;
-}
-.flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .bgg-blue {
+    background-color: #003b60;
+    color: white;
+    text-align: center;
+  }
+
+  .bgg-yellow {
+    background-color: #ffcd00;
+    color: white;
+    text-align: center;
+  }
+
+  .bgg-grey {
+    background-color: #f4f4f4;
+    color: white;
+    text-align: center;
+
+  }
+
+  .bgg-sfbox {
+    background-color: #2B2B4B;
+    color: white;
+  }
+
+  .bgg-ingresos {
+    background-image: linear-gradient(to right, #7749EE, #B539F9);
+    color: white;
+  }
+
+  .bgg-cascos {
+    background-image: linear-gradient(to right, #4EE273, #4AE4C4);
+    color: white;
+  }
+
+  .bgg-chalecos {
+    background-image: linear-gradient(to right, #0C75F4, #54A7EC);
+    color: white;
+  }
+
+  .flexSpace {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mt-13 {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .mt-res {
+      margin-top: 15px;
+    }
+  }
+
 </style>

@@ -8,7 +8,7 @@
       >Ver imagen <span class="fa fa-arrow-circle-right"></span></a>
     -->
     
-    <div class="box bgg-sfbox modalPreviewDiv">
+    <div class="box bgg-sfbox radius-general modalPreviewDiv">
       <div>
         <span class="iconoCamara">
           <img
@@ -232,7 +232,8 @@ export default {
 }
 .bgg-sfbox {
   background-color: #2B2B4B;
-  border-radius: 10px;
+    box-shadow: 7px 6px 12px #1b0f1c2b;
+
 }
 .modalPreviewDiv {
   border: none;

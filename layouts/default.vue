@@ -1,94 +1,28 @@
 <template>
   <div>
     <section class="welcomeScreen" id="welcomescreen">
-        <div class="safetyLogo"><strong>SAFETY</strong></div>
+      <div class="safetyLogo"><strong>SAFETY</strong></div>
     </section>
     <div class="wrapper">
       <header class="headerStyle">
+
         <div class="safetyLogo">
           <strong>SAFETY</strong>
         </div>
-        <div class="col-md-8" style="margin-top: 4px"><input class="form-control col-md-8 sfSearchbar" type="search" placeholder="Buscar" aria-label="Buscar"></div>
-        
-        <!-- Logo -->
-        <!-- 
-        <a href="/" class="logo">
-          
-          <span class="logo-mini">S<strong>T</strong></span>
-          
-          
-        </a>
-        -->
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top">
-          <!-- Sidebar toggle button-->
-          <!-- 
-          <a
-            href="#"
-            class="sidebar-toggle"
-            data-toggle="push-menu"
-            role="button"
-            id="toggleNavbar"
-          >
-            <span class="sr-only">Toggle</span>
-          </a>
-          -->
 
-          <div class="navbar-custom-menu" style="padding-bottom: 2px;">
-            <ul class="nav navbar-nav" style="padding-bottom: 2px;">
-              <!-- User Account: style can be found in dropdown.less -->
+        <div class="col-md-8"><input class="form-control col-md-8 sfSearchbar" type="search" placeholder="Buscar"
+            aria-label="Buscar"></div>
 
-              
-              <li style="padding: 0px" class="logoutLink"><!--class="dropdown user user-menu" -->
-                <a
-                  class="logoutLink"
-                  style="padding: 0px"
-                  href="#"
-                  data-toggle="dropdown"
-                  @click="logout()"
-                >
-                  <div
-                    style="background-color: #F37DB8; border-radius: 50%"
-                    class="logoutLink"
-                  >
-                    <img
-                      class="logoutLink"
-                      src="@/assets/icons/logout.png"
-                      style="width: 40px; height: 40px;"
-                      alt="Salir"
-                    />
-                </div>
-                </a>
-              </li>
-              
-
-            </ul>
-          </div>
+        <nav class="navbar">
+          <button @click="logout()" class="logoutLink sign-out" data-tippy-content="Cerrar Sesión" >
+            <img class="logoutLink" src="@/assets/icons/logout.png" alt="Salir" width="50px" />
+          </button>
         </nav>
       </header>
-      <!-- Left side column. contains the logo and sidebar -->
-      
 
-      <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper" style="background-color: #010030">
-        <!-- Content Header (Page header) -->
-        <!-- 
-        <section class="content-header">
-          <h1>
-            Dashboard
-            <small>Resumen</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li>
-              <a href="#"><em class="fa fa-dashboard"></em> Home</a>
-            </li>
-            <li class="active">Resumen</li>
-          </ol>
-        </section>
-        -->
-
         <!-- Main content -->
-        <section class="content" style="background-color: #010030">
+        <section class="content mt-5" style="background-color: #010030">
           <Nuxt />
         </section>
         <!-- /.content -->
@@ -112,59 +46,70 @@
   </div>
 </template>
 <script>
-export default {
-  middleware: ["authenticated"],
-  components: {},
-  head() {
-    return {
-      meta: [
-        {
-          content:
-            "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+  export default {
+    middleware: ["authenticated"],
+    components: {},
+    head() {
+      return {
+        meta: [{
+          content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
           name: "viewport",
-        },
-      ],
-    };
-  },
-  data() {
-    return {};
-  },
-  computed: {},
-  methods: {
-    logout() {
-      localStorage.clear();
-      this.$router.push("/login");
+        }, ],
+      };
     },
-  },
-  async mounted() {
-    var body = document.getElementsByTagName("body")[0];
-    
-    body.classList.add("sidebar-collapse");
-    /*
-    body.classList.add("skin-yellow"); 
-    body.classList.add("sidebar-mini");
-    
-    */
-    body.classList.add("hold-transition");
+    data() {
+      return {};
+    },
+    computed: {},
+    methods: {
+      logout() {
+        localStorage.clear();
+        this.$router.push("/login");
+      },
+    },
+    async mounted() {
+      var body = document.getElementsByTagName("body")[0];
 
-    $.widget.bridge("uibutton", $.ui.button);
+      body.classList.add("sidebar-collapse");
+      /*
+      body.classList.add("skin-yellow"); 
+      body.classList.add("sidebar-mini");
+      
+      */
+      body.classList.add("hold-transition");
 
-    setTimeout(function () {
-      document.getElementById("welcomescreen").style.display='none';
-    }, 2000);
-  },
-};
+      $.widget.bridge("uibutton", $.ui.button);
+
+      setTimeout(function () {
+        document.getElementById("welcomescreen").style.display = 'none';
+      }, 2000);
+
+      tippy('[data-tippy-content]',{
+        theme: 'safety'
+      })
+    },
+  };
+
 </script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
   * {
     font-family: 'Ubuntu', sans-serif;
   }
-  .logoutLink:hover{
+
+  .logoutLink:hover {
     text-decoration: none;
   }
-   
-  .welcomeScreen{
+
+  nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .welcomeScreen {
     width: 100vw;
     height: 100vh;
     z-index: 50;
@@ -177,52 +122,96 @@ export default {
     animation: 2s ease-in-out 0s 1 fadeAway;
   }
 
+  .sign-out {
+    cursor: pointer; 
+    background-color: #F37DB8; 
+    border-radius: 50%;
+    border: none;
+  }
+
   /* Screen Animation*/
   @keyframes fadeAway {
     0% {
       opacity: 100;
     }
+
     100% {
       opacity: 0;
     }
   }
-  
-  .headerStyle {
-    display: flex; 
-    justify-content: space-between; 
-    background-color: #2B2B4B; 
-    height: 60px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
+  header {
+    padding: 0;
+    z-index: 20;
+    box-shadow: 0 10px 10px #06080c36;
+    position: absolute;
+    width: 100%;
+    background: #2b2b4b;
   }
+  .radius-general {
+    border-radius: 7px;
+  }
+
+  .headerStyle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  .main-footer {
+    padding: 10px 15px;
+  }
+
   .safetyLogo {
     color: white;
     font-size: 3rem;
     letter-spacing: 6px;
     font-family: 'Ubuntu', sans-serif;
-    
+
   }
-  .sfSearchbar{
+
+  .sfSearchbar {
     background-color: #010030;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
 
   }
+
   ::placeholder {
-  color: #2B2B4B; ;
-  opacity: 1; /* Firefox */
+    color: #2B2B4B;
+    ;
+    opacity: 1;
+    /* Firefox */
   }
 
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #2B2B4B; ;
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #2B2B4B;
+    ;
   }
 
-  ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #2B2B4B; ;
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #2B2B4B;
+    ;
   }
 
-  
+  .tippy-box[data-theme~='safety'] {
+  background-color: #eee;
+  color: #2B2B4B;
+}
+.tippy-box[data-theme~='safety'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: #eee;
+}
+.tippy-box[data-theme~='safety'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color: #eee;
+}
+.tippy-box[data-theme~='safety'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color: #eee;
+}
+.tippy-box[data-theme~='safety'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: #eee;
+}
 
 </style>

@@ -29,6 +29,7 @@ export default {
     body.classList.add("hold-transition");
     body.classList.add("login-page");
     $.widget.bridge("uibutton", $.ui.button);
+    
   },
 };
 </script>

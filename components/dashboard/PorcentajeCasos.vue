@@ -2,7 +2,7 @@
   <div>
     <div v-if="resultadoml != undefined">
       <!-- Small boxes (Stat box) -->
-      <div class="box" style="background-color:rgba(0, 0, 0, 0); border: none;">
+      <div style="background-color:rgba(0, 0, 0, 0);">
         <!-- 
         <div class="box-header with-border" style="text-align: center">
           <h3 class="box-title">
@@ -13,11 +13,11 @@
         </div>
         -->
 
-        <div class="box-body chart-responsive" style="margin-top: -35px;">
-          <div class="row">
+        <div class="box-body">
+          <div>
 
              <div><!--col-lg-12 col-xs-12 -->
-              <div class="small-box bgg-sfbox">
+              <div class="small-box bgg-sfbox radius-general">
                 <div class="inner">
                   <h4 style="color: white; text-align: center">
                     <strong>Porcentaje Uso vs no Uso acumulado diario</strong>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="inner">
-                  <h4 class="center-white" style="margin-bottom: 0">
+                  <h4 class="center-white" style="margin: 10px 0 0 0;">
                     <strong>Casco</strong>
                   </h4>
                   <h4
@@ -252,6 +252,6 @@ export default {
 }
 .bgg-sfbox {
   background-color: #2B2B4B;
-  border-radius: 10px;
+  padding: 10px;
 }
 </style>

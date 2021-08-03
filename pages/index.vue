@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #010030; margin-top: -10px;">
+  <div class="container-safety" style="background-color: #010030;">
     
     <div class="row" v-show="resultadoml != undefined">
       
@@ -20,23 +20,14 @@
       -->
       
     </div>
-    <br />
+    
     <div class="row" v-if="resultadoml != undefined">
-      <div class="col-md-3 primerBloque">
+      <div class="col-md-3">
         <ModalPicture />
         <MenuReportes />
       </div>
-      <div class="col-md-9" style="margin-top: -10px">
-        <CantidadCasos />
-      </div>
       <div class="col-md-9">
-        <div class="col-md-4" style="color: white">
-          <PorcentajeCasos />
-        </div>
-        <div class="col-md-8" style="color: white">
-          <TLGrafico1 />
-          <TLGrafico2 />
-        </div>
+        <CantidadCasos />
       </div>
       
       <!-- 
@@ -61,7 +52,6 @@
 
 <script>
   import CantidadCasos from "@/components/dashboard/CantidadCasos";
-  import PorcentajeCasos from "@/components/dashboard/PorcentajeCasos";
   import PorcentajeSemestral from "@/components/dashboard/PorcentajeSemestral";
   import WeeklyAverage from "@/components/dashboard/WeeklyAverage";
   import TimeLineDetecciones from "@/components/dashboard/TimeLineDetecciones";
@@ -69,8 +59,7 @@
   import ModalPicture from "@/components/dashboard/ModalPicture";
   import DrawDetecciones from "@/components/dashboard/DrawDetecciones";
   import MenuReportes from "@/components/dashboard/MenuReportes.vue";
-  import TLGrafico1 from "@/components/dashboard/TLGrafico1.vue";
-  import TLGrafico2 from "@/components/dashboard/TLGrafico2.vue";
+  
   import { mapMutations, mapGetters, mapActions } from "vuex";
   export default {
     data() {
@@ -79,7 +68,6 @@
       };
     },
     components: {
-      PorcentajeCasos,
       ModalPicture,
       DrawDetecciones,
       CantidadCasos,
@@ -88,8 +76,7 @@
       PorcentajeSemestral,
       WeeklyAverage,
       MenuReportes,
-      TLGrafico1,
-      TLGrafico2,
+   
     },
     methods: {
       ...mapActions({
@@ -120,11 +107,16 @@
 </script>
 
 <style>
-@media screen and (min-width: 480px) {
+/* @media screen and (min-width: 480px) {
   .primerBloque {
   margin-right: -15px;
   margin-left: 12px
 }
+} */
+
+.container-safety {
+  padding: 8.8em 1.5em 0 1.5em ;
+  z-index: -1;
 }
 </style>
 

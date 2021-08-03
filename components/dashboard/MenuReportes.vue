@@ -1,144 +1,95 @@
 <template>
-  <section class="box mainbox">
-    <div class="box-header" style="text-align: center; margin-bottom: 3vh">
-          <h3 class="box-title" style="color: #010030;"><strong>Menu</strong></h3>
+  <section class="mainbox radius-general">
+    <div class="text-center">
+      <h3>Menu</h3>
     </div>
-    <div style="color: white">
-        <div class="parent">
-            <div class="div1"> </div>
-            <div class="div2"> 
-                <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/obrero.png"
-                      style="width: 82px"
-                      alt="EPP"
-                    />
-                </div>
-            </div>
-            <div class="div3 alignY"> <h3 style="color: white">EPP</h3></div>
-            <div class="div4">
-                <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/inout.png"
-                      style="width: 82px"
-                      alt="InOut"
-                    />
-                </div>
-            </div>
-            <div class="div5 alignY"> <h3 style="color: white">In-Out Zona</h3></div>
-            <div class="div6"> </div>
-            <div class="div7 alignY"> <div class="alertPillGreen">2</div></div>
-            <div class="div8 alignY"> <h3 style="color: white">Reportes</h3></div>
-            <div class="div9">
-                <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/reportes.png"
-                      style="width: 82px"
-                      alt="Reportes"
-                    />
-                </div>
 
-            </div>
-            <div class="div10">
-                <div
-                    class="icon"
-                    style="position: initial !important; font-size: 48px"
-                  >
-                    <img
-                      src="@/assets/icons/alertas.png"
-                      style="width: 84px"
-                      alt="Alertas"
-                    />
-                </div>
-            </div>
-            <div class="div11 alignY"> <h3 style="color: white">Alertas</h3> </div>
-            <div class="div12 alignY"> <div class="alertPillPink">1</div></div>
-          </div>
-          <div class="arrowContainer"><div class="arrow"></div></div>
-          
-      </div>
+    <div class="item">
+      <img src="@/assets/icons/obrero.png" alt="EPP" class="icon-reports-menu">
+      <h4>EPP</h4>
+    </div>
+    <div class="item">
+      <img src="@/assets/icons/inout.png" alt="Int-Out Zona" class="icon-reports-menu">
+      <h4>In-Out Zona</h4>
+    </div>
+    <div class="item">
+      <img src="@/assets/icons/reportes.png" alt="Reportes" class="icon-reports-menu">
+      <h4>Reportes</h4>
+      <span class="alertPillGreen"> 2 </span>
+    </div>
+    <div class="item">
+      <img src="@/assets/icons/alertas.png" alt="Alertas" class="icon-reports-menu">
+      <h4>Alertas</h4>
+      <span class="alertPillPink"> 1 </span>
+    </div>
+    <div class="arrowContainer">
+      <div class="arrow"></div>
+    </div>
   </section>
 </template>
 
 <style scoped>
-
-  .alignY {
-    display: flex;
-    align-items: center;
-  }
-
   .mainbox {
-    background-color: #2B2B4B; 
-    border: none; 
-    border-radius: 10px; 
-    padding-left: 10px; 
-    padding-bottom: 10px;
+    background-color: #2B2B4B;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 20px;
+    box-shadow: 7px 6px 12px #1b0f1c2b;
   }
 
-  .parent {
-    display: grid;
-    grid-template-columns: 2fr 3fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 2vh;
+  .icon-reports-menu {
+    width: 5em;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+  }
+
+
+
+
+
+
+  .arrowContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 11vh;
 
   }
 
-.div1 { grid-area: 1 / 3 / 2 / 4; }
-.div2 { grid-area: 1 / 1 / 2 / 2; }
-.div3 { grid-area: 1 / 2 / 2 / 3; }
-.div4 { grid-area: 2 / 1 / 3 / 2; }
-.div5 { grid-area: 2 / 2 / 3 / 3; }
-.div6 { grid-area: 2 / 3 / 3 / 4; }
-.div7 { grid-area: 3 / 3 / 4 / 4; }
-.div8 { grid-area: 3 / 2 / 4 / 3; }
-.div9 { grid-area: 3 / 1 / 4 / 2; }
-.div10 { grid-area: 4 / 1 / 5 / 2; }
-.div11 { grid-area: 4 / 2 / 5 / 3; }
-.div12 { grid-area: 4 / 3 / 5 / 4; }
-
-.arrowContainer {
-  display: flex;
-  justify-content: center;
-  margin-top: 11vh;
-
-}
-.arrow {
+  .arrow {
     display: inline-block;
-    border-right: 4px solid #010030; ;
-    border-bottom: 4px solid #010030; ;
-    width: 10px; height: 10px;
+    border-right: 4px solid #010030;
+    ;
+    border-bottom: 4px solid #010030;
+    ;
+    width: 10px;
+    height: 10px;
     transform: rotate(-135deg);
-}
+  }
 
-.alertPillGreen {
-  border-radius: 5px;
-  width: 40px;
-  height: 20px;
-  background-color: #4EE273;
-  color: white;
-  text-align: center;
-  margin-top: 10px;
-}
-.alertPillPink {
-  border-radius: 5px;
-  width: 40px;
-  height: 20px;
-  background-color: #F37DB8;
-  color: white;
-  text-align: center;
-  margin-top: 10px;
-}
+  .alertPillGreen {
+    border-radius: 5px;
+    width: 40px;
+    height: 20px;
+    background-color: #4EE273;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+  }
 
+  .alertPillPink {
+    border-radius: 5px;
+    width: 40px;
+    height: 20px;
+    background-color: #F37DB8;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+  }
 
-	
 </style>
